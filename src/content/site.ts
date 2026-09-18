@@ -40,7 +40,6 @@ export const hero = {
   ],
   script: "Больше возможностей для вашего бизнеса!",
   primaryCta: { label: "Узнать подробнее", href: "#pricing" },
-  secondaryCta: { label: "Смотреть видео (1 мин)", href: "#process" },
   phoneMock: {
     routeLabel: "Маршрут на сегодня",
     stops: [

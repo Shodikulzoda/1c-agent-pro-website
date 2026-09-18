@@ -1,4 +1,4 @@
-import { Check, Play } from "lucide-react";
+import { Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { MountainBackdrop } from "@/components/ui/MountainBackdrop";
@@ -62,15 +62,6 @@ export function Hero() {
             style={{ animationDelay: "280ms" }}
           >
             <DemoButton variant="yellow">{hero.primaryCta.label} →</DemoButton>
-            <a
-              href={hero.secondaryCta.href}
-              className="text-heading group inline-flex items-center gap-2.5 text-sm font-bold"
-            >
-              <span className="border-brand-blue/30 bg-surface text-brand-blue flex h-11 w-11 items-center justify-center rounded-full border shadow-md transition-transform group-hover:scale-105">
-                <Play aria-hidden="true" className="ml-0.5 h-4 w-4 fill-current" />
-              </span>
-              {hero.secondaryCta.label}
-            </a>
           </div>
         </div>
 
