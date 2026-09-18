@@ -14,10 +14,36 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+const title = "1C Agent Pro";
+const description =
+  "1C Agent Pro — мобильное рабочее место торгового представителя с полной интеграцией с 1С: заказы, визиты, фотоотчёты и GPS-контроль маршрутов в реальном времени.";
+
 export const metadata: Metadata = {
-  title: "1C Agent Pro",
-  description:
-    "1C Agent Pro — мобильное рабочее место торгового представителя с полной интеграцией с 1С: заказы, визиты, фотоотчёты и GPS-контроль маршрутов в реальном времени.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title,
+  description,
+  keywords: [
+    "1C Agent Pro",
+    "1С торговый представитель",
+    "мобильное приложение для агентов",
+    "интеграция с 1С",
+    "CRM торговых представителей",
+  ],
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    locale: "ru_RU",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

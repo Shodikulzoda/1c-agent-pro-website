@@ -58,7 +58,11 @@ export function Navbar() {
           onClick={() => setOpen((v) => !v)}
           className="border-line text-heading flex h-11 w-11 items-center justify-center rounded-lg border md:hidden"
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? (
+            <X aria-hidden="true" className="h-5 w-5" />
+          ) : (
+            <Menu aria-hidden="true" className="h-5 w-5" />
+          )}
         </button>
       </Container>
 

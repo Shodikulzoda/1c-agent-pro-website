@@ -26,7 +26,10 @@ Tailwind). One checkbox per step in the approved plan; each lands as its own com
       IntersectionObserver so nothing can get stuck invisible without JS). Button hover
       lift guarded with `motion-safe:`. Audited grid breakpoints across every section —
       all collapse sensibly from 2/6 columns down to 1 on mobile.
-- [ ] **Step 6 — SEO, accessibility, quality pass**
-      Metadata/OG tags, semantic landmarks, contrast check, clean lint/typecheck/build.
+- [x] **Step 6 — SEO, accessibility, quality pass**
+      OpenGraph/Twitter metadata, generated favicon/apple-icon/OG share image (`next/og`),
+      `metadataBase` via `NEXT_PUBLIC_SITE_URL`. All decorative icons marked
+      `aria-hidden`. Semantic landmarks already in place (`nav`/`header`/`main`/`footer`,
+      one `h1`, `h2` per section). Clean lint/typecheck/build.
 - [ ] **Step 7 — Push & wrap-up**
       Push to GitHub private repo, final walkthrough, ask about deployment.

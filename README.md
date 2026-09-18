@@ -19,6 +19,12 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Deployment
+
+Set `NEXT_PUBLIC_SITE_URL` to the site's real domain (e.g. `https://1c-agent-pro.example`)
+in the hosting provider's environment variables — it resolves the absolute URLs for the
+Open Graph/Twitter share image. It falls back to `http://localhost:3000` in local dev.
+
 ## Scripts
 
 | Command                | Purpose                    |

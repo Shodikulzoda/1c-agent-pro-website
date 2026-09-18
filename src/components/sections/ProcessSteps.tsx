@@ -23,7 +23,11 @@ export function ProcessSteps() {
               >
                 <div className="flex items-center justify-between">
                   <span className="from-brand-blue-bright to-brand-blue flex h-9.5 w-9.5 items-center justify-center rounded-[10px] bg-linear-to-br text-white">
-                    <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                    <Icon
+                      aria-hidden="true"
+                      className="h-[18px] w-[18px]"
+                      strokeWidth={2}
+                    />
                   </span>
                   <span className="text-brand-blue bg-surface-tint flex h-7.5 w-7.5 items-center justify-center rounded-full text-xs font-extrabold tabular-nums">
                     {String(index + 1).padStart(2, "0")}

@@ -54,7 +54,11 @@ export function Hero() {
                 className="text-ink flex items-start gap-2.5 text-sm font-semibold sm:text-base"
               >
                 <span className="bg-brand-green mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
-                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                  <Check
+                    aria-hidden="true"
+                    className="h-3 w-3 text-white"
+                    strokeWidth={3}
+                  />
                 </span>
                 {item}
               </li>
@@ -120,7 +124,11 @@ export function Hero() {
                   >
                     <span className="text-ink">{row.label}</span>
                     {row.value === "done" ? (
-                      <Check className="text-brand-green h-3.5 w-3.5" strokeWidth={3} />
+                      <Check
+                        aria-hidden="true"
+                        className="text-brand-green h-3.5 w-3.5"
+                        strokeWidth={3}
+                      />
                     ) : (
                       <span className="text-brand-green">{row.value}</span>
                     )}

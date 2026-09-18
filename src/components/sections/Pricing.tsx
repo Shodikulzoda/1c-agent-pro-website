@@ -47,6 +47,7 @@ export function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="text-ink flex items-start gap-2 text-sm">
                     <Check
+                      aria-hidden="true"
                       className="text-brand-green mt-0.5 h-4 w-4 shrink-0"
                       strokeWidth={3}
                     />

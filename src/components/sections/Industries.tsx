@@ -23,7 +23,11 @@ export function Industries() {
                 className="border-line bg-surface rounded-2xl border p-5.5"
               >
                 <span className="bg-brand-navy mb-3.5 flex h-9.5 w-9.5 items-center justify-center rounded-[10px] text-white">
-                  <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                  <Icon
+                    aria-hidden="true"
+                    className="h-[18px] w-[18px]"
+                    strokeWidth={2}
+                  />
                 </span>
                 <h3 className="text-ink mb-2.5 text-[0.95rem] font-bold">
                   {industry.title}
@@ -35,6 +39,7 @@ export function Industries() {
                       className="text-ink-soft flex items-start gap-1.5 text-[0.78rem]"
                     >
                       <Check
+                        aria-hidden="true"
                         className="text-brand-green mt-0.5 h-3 w-3 shrink-0"
                         strokeWidth={3}
                       />

@@ -22,7 +22,11 @@ export function FeaturesGrid() {
                 className="border-line bg-surface rounded-2xl border p-6.5"
               >
                 <span className="bg-surface-tint text-brand-blue mb-4 flex h-11.5 w-11.5 items-center justify-center rounded-xl">
-                  <Icon className="h-[22px] w-[22px]" strokeWidth={2} />
+                  <Icon
+                    aria-hidden="true"
+                    className="h-[22px] w-[22px]"
+                    strokeWidth={2}
+                  />
                 </span>
                 <h3 className="text-ink mb-2 text-[1.05rem] font-bold">
                   {feature.title}

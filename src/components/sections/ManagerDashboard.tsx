@@ -26,7 +26,11 @@ export function ManagerDashboard() {
               return (
                 <li key={point.title} className="flex items-start gap-3.5">
                   <span className="bg-surface text-brand-blue border-line flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border">
-                    <Icon className="h-[18px] w-[18px]" strokeWidth={2} />
+                    <Icon
+                      aria-hidden="true"
+                      className="h-[18px] w-[18px]"
+                      strokeWidth={2}
+                    />
                   </span>
                   <div>
                     <p className="text-ink text-[0.95rem] font-bold">{point.title}</p>
