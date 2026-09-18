@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 const variants = {
   primary:
     "bg-linear-to-br from-brand-blue-bright to-brand-blue text-white shadow-lg shadow-brand-blue/30 hover:brightness-105",
-  ghost: "bg-surface-tint text-brand-navy border border-line hover:bg-line/60",
+  ghost: "bg-surface-tint text-heading border border-line hover:bg-line/60",
   inverse: "bg-white text-brand-navy hover:bg-white/90",
   "inverse-outline": "bg-white/10 text-white border border-white/25 hover:bg-white/15",
 } as const;

@@ -1,23 +1,29 @@
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Button } from "@/components/ui/Button";
+import { Navbar } from "@/components/sections/Navbar";
+import { Hero } from "@/components/sections/Hero";
+import { StatsStrip } from "@/components/sections/StatsStrip";
+import { ProcessSteps } from "@/components/sections/ProcessSteps";
+import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
+import { Industries } from "@/components/sections/Industries";
+import { ManagerDashboard } from "@/components/sections/ManagerDashboard";
+import { Pricing } from "@/components/sections/Pricing";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 items-center py-24">
-      <Container className="flex flex-col gap-8">
-        <SectionHeading
-          eyebrow="1C Agent Pro"
-          title="Дизайн-система готова — секции сайта в следующем шаге"
-          description="Токены цвета и типографики, базовые компоненты (Button, Container, SectionHeading, Eyebrow) подключены и собираются без ошибок."
-        />
-        <div className="flex gap-3">
-          <Button href="#">Основная кнопка</Button>
-          <Button href="#" variant="ghost">
-            Второстепенная
-          </Button>
-        </div>
-      </Container>
-    </main>
+    <>
+      <Navbar />
+      <main className="flex-1">
+        <Hero />
+        <StatsStrip />
+        <ProcessSteps />
+        <FeaturesGrid />
+        <Industries />
+        <ManagerDashboard />
+        <Pricing />
+        <CtaBand />
+      </main>
+      <Footer />
+    </>
   );
 }

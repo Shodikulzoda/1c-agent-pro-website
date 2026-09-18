@@ -13,9 +13,13 @@ Tailwind). One checkbox per step in the approved plan; each lands as its own com
 - [x] **Step 3 — Content layer**
       Typed copy module (`src/content/site.ts`) for nav, hero, stats, process steps,
       features, industries, dashboard, pricing, CTA, footer.
-- [ ] **Step 4 — Section components**
-      `Navbar`, `Hero`, `StatsStrip`, `ProcessSteps`, `FeaturesGrid`, `Industries`,
-      `ManagerDashboard`, `Pricing`, `CTA`, `Footer` — composed on the home page.
+- [x] **Step 4 — Section components**
+      `Navbar` (with accessible mobile menu), `Hero`, `StatsStrip`, `ProcessSteps`,
+      `FeaturesGrid`, `Industries`, `ManagerDashboard`, `Pricing`, `CtaBand`, `Footer` —
+      composed on the home page. Fixed a dark-mode contrast bug where the brand-navy
+      token flipped for headings but was also used as a solid background fill (stats
+      band, dashboard card) — split into a fixed `--color-navy` (fills) and a flipping
+      `--color-heading` (text) token.
 - [ ] **Step 5 — Interactivity & responsive polish**
       Mobile nav, scroll-reveal motion, full responsive pass (375 / 768 / 1024 / 1440).
 - [ ] **Step 6 — SEO, accessibility, quality pass**

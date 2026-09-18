@@ -12,7 +12,12 @@
   --color-ink: #0e2a47;
   --color-ink-soft: #54718f;
   --color-line: #d9e6f2;
+  /* Fixed brand navy — used for solid fills (stats band, dashboard card,
+     CTA gradient, logo chips) that must read as "navy" in both themes. */
   --color-navy: #123a66;
+  /* Heading/emphasis text color — flips for contrast against the page
+     background, unlike --color-navy which never changes. */
+  --color-heading: #123a66;
   --color-blue: #1d6fd8;
   --color-blue-bright: #2e8cf0;
   --color-green: #17a566;
@@ -27,7 +32,7 @@
     --color-ink: #eaf3fb;
     --color-ink-soft: #9fb8d2;
     --color-line: #1d3b5c;
-    --color-navy: #bfe0ff;
+    --color-heading: #bfe0ff;
     --color-blue: #5fa8f5;
     --color-blue-bright: #7ebbff;
     --color-green: #38c98a;
@@ -43,6 +48,7 @@
   --color-ink-soft: var(--color-ink-soft);
   --color-line: var(--color-line);
   --color-brand-navy: var(--color-navy);
+  --color-heading: var(--color-heading);
   --color-brand-blue: var(--color-blue);
   --color-brand-blue-bright: var(--color-blue-bright);
   --color-brand-green: var(--color-green);

@@ -234,6 +234,7 @@ export const pricing = {
       priceRange: "40–50",
       unit: "смн / агент / мес",
       highlighted: false,
+      badge: null,
       features: [
         "Клиенты, товары, цены, остатки",
         "Заказы, продажи, возвраты",
@@ -260,6 +261,7 @@ export const pricing = {
       priceRange: "60–70",
       unit: "смн / агент / мес",
       highlighted: false,
+      badge: null,
       features: [
         "Всё из Pro",
         "Мобильный кабинет руководителя",
