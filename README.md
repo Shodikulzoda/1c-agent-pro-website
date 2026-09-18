@@ -21,7 +21,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Running with Docker
 
-No local Node install needed.
+No local Node install needed. Docker Desktop must be running first.
+
+**One click (macOS):** double-click **`start.command`** in Finder — it builds and starts
+the container, waits until it's ready, and opens the site in your browser. Double-click
+**`stop.command`** to stop it.
+
+Or from a terminal:
 
 ```bash
 docker compose up --build
