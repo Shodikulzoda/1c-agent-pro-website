@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Caveat, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -12,6 +12,14 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
+});
+
+// Handwritten script accent (has Cyrillic) — matches the blue script captions
+// scattered across the source marketing art ("Больше возможностей…").
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin", "cyrillic"],
+  weight: ["500", "700"],
 });
 
 const title = "1C Agent Pro";
@@ -50,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ru"
-      className={`${manrope.variable} ${inter.variable} h-full antialiased`}
+      className={`${manrope.variable} ${inter.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>

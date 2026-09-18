@@ -1,43 +1,31 @@
 @import "tailwindcss";
 
 /*
- * Light palette (default). A grey with a slight cool bias, plus a navy/blue/green
- * brand triad: navy for headings and dark surfaces, blue for the primary action
- * color, green reserved for confirmation/checkmarks only.
+ * Single, deliberately light visual world — matches the source marketing art,
+ * which is uniformly bright (white + pale-blue winter skies, mountains, soft
+ * shadows). No dark-mode variant on purpose; every color is painted explicitly
+ * so the page holds up on any host background.
  */
 :root {
-  --color-bg: #f5f9fd;
+  --color-bg: #f4faff;
   --color-surface: #ffffff;
-  --color-surface-tint: #eaf3fb;
-  --color-ink: #0e2a47;
-  --color-ink-soft: #54718f;
-  --color-line: #d9e6f2;
-  /* Fixed brand navy — used for solid fills (stats band, dashboard card,
-     CTA gradient, logo chips) that must read as "navy" in both themes. */
-  --color-navy: #123a66;
-  /* Heading/emphasis text color — flips for contrast against the page
-     background, unlike --color-navy which never changes. */
-  --color-heading: #123a66;
-  --color-blue: #1d6fd8;
-  --color-blue-bright: #2e8cf0;
-  --color-green: #17a566;
-  --color-amber: #e7a33e;
-}
+  --color-surface-tint: #e9f4fe;
+  --color-ink: #0d2b4e;
+  --color-ink-soft: #5b7590;
+  --color-line: #dbeaf7;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #081726;
-    --color-surface: #0f2740;
-    --color-surface-tint: #0c2036;
-    --color-ink: #eaf3fb;
-    --color-ink-soft: #9fb8d2;
-    --color-line: #1d3b5c;
-    --color-heading: #bfe0ff;
-    --color-blue: #5fa8f5;
-    --color-blue-bright: #7ebbff;
-    --color-green: #38c98a;
-    --color-amber: #f0b85c;
-  }
+  --color-navy: #10345c;
+  --color-heading: #10345c;
+  --color-blue: #1c6fd8;
+  --color-blue-bright: #2e8cf0;
+  --color-green: #29a745;
+  --color-yellow: #f5b70a;
+  --color-amber: #e7a33e;
+
+  /* Pale winter-sky tints for the mountain/wave backdrops. */
+  --color-sky-1: #eaf5ff;
+  --color-sky-2: #d6eafc;
+  --color-sky-3: #c2ddf5;
 }
 
 @theme inline {
@@ -52,12 +40,17 @@
   --color-brand-blue: var(--color-blue);
   --color-brand-blue-bright: var(--color-blue-bright);
   --color-brand-green: var(--color-green);
+  --color-brand-yellow: var(--color-yellow);
   --color-brand-amber: var(--color-amber);
+  --color-sky-1: var(--color-sky-1);
+  --color-sky-2: var(--color-sky-2);
+  --color-sky-3: var(--color-sky-3);
 
   --font-display: var(--font-manrope);
   --font-sans: var(--font-inter);
+  --font-script: var(--font-caveat);
 
-  --container-page: 72rem;
+  --container-page: 75rem;
 }
 
 body {
@@ -65,9 +58,32 @@ body {
   color: var(--color-ink);
 }
 
+/* Anchor targets clear the sticky navbar when jumped to. */
+:where(section, header)[id] {
+  scroll-margin-top: 5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 ::selection {
   background: var(--color-blue-bright);
   color: #ffffff;
+}
+
+/* Blue handwritten caption, as seen throughout the source art. */
+.script {
+  font-family: var(--font-script), cursive;
+  color: var(--color-blue);
+  font-weight: 700;
+  line-height: 1;
 }
 
 /*

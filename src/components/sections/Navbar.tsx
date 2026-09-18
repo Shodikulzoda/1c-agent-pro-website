@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { nav } from "@/content/site";
@@ -23,18 +23,22 @@ export function Navbar() {
       className="border-line/80 bg-surface/85 sticky z-20 border-b backdrop-blur-md"
       style={{ top: "env(safe-area-inset-top, 0px)" }}
     >
-      <Container className="flex items-center justify-between gap-6 py-3.5">
-        <a
-          href="#"
-          className="font-display text-heading flex items-center gap-2.5 text-lg font-extrabold"
-        >
-          <span className="from-brand-blue-bright to-brand-navy flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-linear-to-br text-xs font-extrabold text-white">
+      <Container className="flex items-center justify-between gap-5 py-3">
+        <a href="#" className="flex shrink-0 items-center gap-2.5" aria-label={nav.brand}>
+          <span className="from-brand-blue-bright to-brand-navy flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] bg-linear-to-br text-xs font-extrabold text-white">
             1C
           </span>
-          {nav.brand}
+          <span className="flex flex-col leading-tight">
+            <span className="font-display text-heading text-base font-extrabold">
+              {nav.brand}
+            </span>
+            <span className="text-ink-soft hidden text-[0.62rem] font-medium sm:block">
+              {nav.tagline}
+            </span>
+          </span>
         </a>
 
-        <ul className="text-ink-soft hidden items-center gap-7 text-sm font-semibold md:flex">
+        <ul className="text-ink-soft hidden items-center gap-6 text-[0.83rem] font-semibold xl:flex">
           {nav.links.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="hover:text-brand-blue transition-colors">
@@ -44,10 +48,27 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 lg:flex">
+          <a
+            href={`tel:${nav.phone.replace(/\s/g, "")}`}
+            className="text-heading flex items-center gap-2 text-sm font-bold"
+          >
+            <Phone aria-hidden="true" className="text-brand-blue h-4 w-4" />
+            <span className="flex flex-col leading-tight">
+              {nav.phone}
+              <span className="text-ink-soft text-[0.62rem] font-medium">
+                {nav.callback}
+              </span>
+            </span>
+          </a>
           <Button href={nav.cta.href} className="px-4.5 py-2.5 text-[0.85rem]">
             {nav.cta.label}
           </Button>
+          <span className="text-ink-soft flex items-center gap-1 text-xs font-bold">
+            <span className="text-brand-blue">{nav.locales[0]}</span>
+            <span className="text-line">|</span>
+            <span>{nav.locales[1]}</span>
+          </span>
         </div>
 
         <button
@@ -56,7 +77,7 @@ export function Navbar() {
           aria-controls="mobile-menu"
           aria-label={open ? "Закрыть меню" : "Открыть меню"}
           onClick={() => setOpen((v) => !v)}
-          className="border-line text-heading flex h-11 w-11 items-center justify-center rounded-lg border md:hidden"
+          className="border-line text-heading flex h-11 w-11 items-center justify-center rounded-lg border xl:hidden"
         >
           {open ? (
             <X aria-hidden="true" className="h-5 w-5" />
@@ -67,7 +88,7 @@ export function Navbar() {
       </Container>
 
       {open ? (
-        <div id="mobile-menu" className="border-line bg-surface border-t md:hidden">
+        <div id="mobile-menu" className="border-line bg-surface border-t xl:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {nav.links.map((link) => (
               <a
@@ -79,6 +100,13 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href={`tel:${nav.phone.replace(/\s/g, "")}`}
+              className="text-heading flex items-center gap-2 px-3 py-3 text-sm font-bold"
+            >
+              <Phone aria-hidden="true" className="text-brand-blue h-4 w-4" />
+              {nav.phone}
+            </a>
             <Button
               href={nav.cta.href}
               onClick={() => setOpen(false)}

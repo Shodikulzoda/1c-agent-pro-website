@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { StatsStrip } from "@/components/sections/StatsStrip";
+import { Advantages } from "@/components/sections/Advantages";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
 import { Industries } from "@/components/sections/Industries";
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <StatsStrip />
+        <Advantages />
         <ProcessSteps />
         <FeaturesGrid />
         <Industries />

@@ -1,41 +1,33 @@
-import { Check } from "lucide-react";
+import { Check, Play } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { MountainBackdrop } from "@/components/ui/MountainBackdrop";
 import { hero } from "@/content/site";
 
 export function Hero() {
   return (
-    <header className="relative overflow-hidden pt-14 pb-10 sm:pt-20">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, var(--color-line) 1.6px, transparent 1.6px)",
-          backgroundSize: "18px 18px",
-          maskImage:
-            "linear-gradient(to bottom, transparent, black 25%, black 70%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent, black 25%, black 70%, transparent)",
-        }}
-      />
+    <header
+      id="about"
+      className="from-sky-1 via-surface to-bg relative overflow-hidden bg-linear-to-b pt-14 pb-24 sm:pt-20"
+    >
+      <MountainBackdrop variant="bottom" className="h-64 opacity-90" />
       <div
         aria-hidden
         className="from-brand-blue-bright/15 pointer-events-none absolute -top-40 -left-32 h-96 w-96 rounded-full bg-radial to-transparent blur-2xl"
       />
 
-      <Container className="relative grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+      <Container className="relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <div>
           <div className="enter">
             <Eyebrow>{hero.eyebrow}</Eyebrow>
           </div>
           <h1
-            className="font-display text-heading enter mt-5 text-[2.1rem] leading-[1.1] font-extrabold text-balance sm:text-5xl lg:text-[3.1rem]"
+            className="font-display text-heading enter mt-5 text-[2.2rem] leading-[1.08] font-extrabold text-balance sm:text-5xl lg:text-[3.25rem]"
             style={{ animationDelay: "70ms" }}
           >
             {hero.titleLine1} {hero.titleLine2}{" "}
-            <span className="text-brand-green">{hero.titleAccent}</span>
+            <span className="text-brand-green">{hero.titleAccent}!</span>
           </h1>
           <p
             className="text-ink-soft enter mt-4.5 max-w-lg text-base leading-relaxed sm:text-lg"
@@ -66,74 +58,91 @@ export function Hero() {
           </ul>
 
           <div
-            className="enter mt-8 flex flex-wrap gap-3.5"
+            className="enter mt-8 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "280ms" }}
           >
-            <Button href={hero.primaryCta.href}>{hero.primaryCta.label} →</Button>
-            <Button href={hero.secondaryCta.href} variant="ghost">
-              {hero.secondaryCta.label}
+            <Button href={hero.primaryCta.href} variant="yellow">
+              {hero.primaryCta.label} →
             </Button>
+            <a
+              href={hero.secondaryCta.href}
+              className="text-heading group inline-flex items-center gap-2.5 text-sm font-bold"
+            >
+              <span className="border-brand-blue/30 bg-surface text-brand-blue flex h-11 w-11 items-center justify-center rounded-full border shadow-md transition-transform group-hover:scale-105">
+                <Play aria-hidden="true" className="ml-0.5 h-4 w-4 fill-current" />
+              </span>
+              {hero.secondaryCta.label}
+            </a>
           </div>
         </div>
 
-        <div
-          className="enter relative mx-auto w-full max-w-[280px]"
-          style={{ animationDelay: "180ms" }}
-        >
-          <div
-            aria-hidden
-            className="border-line bg-surface shadow-brand-navy/15 text-heading absolute -top-4 -left-6 z-10 flex items-center gap-2 rounded-2xl border px-3.5 py-2.5 text-xs font-bold shadow-xl sm:-left-10"
+        <div className="relative">
+          <p
+            className="script enter absolute -top-2 right-2 z-10 hidden max-w-[13rem] rotate-[-6deg] text-right text-2xl sm:block"
+            style={{ animationDelay: "340ms" }}
           >
-            <span className="bg-brand-green h-2 w-2 rounded-full" />
-            {hero.floatingBadges.visits}
-          </div>
+            {hero.script}
+          </p>
+
           <div
-            aria-hidden
-            className="border-line bg-surface shadow-brand-navy/15 text-brand-green absolute -right-4 -bottom-4 z-10 rounded-2xl border px-3.5 py-2.5 text-xs font-bold shadow-xl sm:-right-8"
+            className="enter relative mx-auto w-full max-w-[280px]"
+            style={{ animationDelay: "180ms" }}
           >
-            {hero.floatingBadges.growth}
-          </div>
+            <div
+              aria-hidden
+              className="border-line bg-surface shadow-brand-navy/15 text-heading absolute -top-4 -left-6 z-10 flex items-center gap-2 rounded-2xl border px-3.5 py-2.5 text-xs font-bold shadow-xl sm:-left-10"
+            >
+              <span className="bg-brand-green h-2 w-2 rounded-full" />
+              {hero.floatingBadges.visits}
+            </div>
+            <div
+              aria-hidden
+              className="border-line bg-surface shadow-brand-navy/15 text-brand-green absolute -right-4 -bottom-4 z-10 rounded-2xl border px-3.5 py-2.5 text-xs font-bold shadow-xl sm:-right-8"
+            >
+              {hero.floatingBadges.growth}
+            </div>
 
-          <div className="border-line bg-surface shadow-brand-navy/20 rounded-[34px] border p-3.5 shadow-2xl">
-            <div className="bg-surface-tint flex min-h-100 flex-col gap-4 rounded-[22px] p-4">
-              <p className="text-ink-soft text-[0.65rem] font-bold tracking-wide uppercase">
-                {hero.phoneMock.routeLabel}
-              </p>
-              <div className="bg-surface border-line divide-line/70 divide-y rounded-xl border">
-                {hero.phoneMock.stops.map((stop) => (
-                  <div
-                    key={stop.name}
-                    className="flex items-center justify-between px-3 py-2.5 text-[0.72rem] font-semibold"
-                  >
-                    <span className="text-ink">{stop.name}</span>
-                    <span className="text-brand-green bg-brand-green/12 rounded-full px-2 py-0.5 text-[0.62rem]">
-                      {stop.time}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <div className="border-line bg-surface shadow-brand-navy/20 rounded-[34px] border p-3.5 shadow-2xl">
+              <div className="bg-surface-tint flex min-h-100 flex-col gap-4 rounded-[22px] p-4">
+                <p className="text-ink-soft text-[0.65rem] font-bold tracking-wide uppercase">
+                  {hero.phoneMock.routeLabel}
+                </p>
+                <div className="bg-surface border-line divide-line/70 divide-y rounded-xl border">
+                  {hero.phoneMock.stops.map((stop) => (
+                    <div
+                      key={stop.name}
+                      className="flex items-center justify-between px-3 py-2.5 text-[0.72rem] font-semibold"
+                    >
+                      <span className="text-ink">{stop.name}</span>
+                      <span className="text-brand-green bg-brand-green/12 rounded-full px-2 py-0.5 text-[0.62rem]">
+                        {stop.time}
+                      </span>
+                    </div>
+                  ))}
+                </div>
 
-              <p className="text-ink-soft text-[0.65rem] font-bold tracking-wide uppercase">
-                {hero.phoneMock.summaryLabel}
-              </p>
-              <div className="bg-surface border-line divide-line/70 divide-y rounded-xl border">
-                {hero.phoneMock.summary.map((row) => (
-                  <div
-                    key={row.label}
-                    className="flex items-center justify-between px-3 py-2.5 text-[0.72rem] font-semibold"
-                  >
-                    <span className="text-ink">{row.label}</span>
-                    {row.value === "done" ? (
-                      <Check
-                        aria-hidden="true"
-                        className="text-brand-green h-3.5 w-3.5"
-                        strokeWidth={3}
-                      />
-                    ) : (
-                      <span className="text-brand-green">{row.value}</span>
-                    )}
-                  </div>
-                ))}
+                <p className="text-ink-soft text-[0.65rem] font-bold tracking-wide uppercase">
+                  {hero.phoneMock.summaryLabel}
+                </p>
+                <div className="bg-surface border-line divide-line/70 divide-y rounded-xl border">
+                  {hero.phoneMock.summary.map((row) => (
+                    <div
+                      key={row.label}
+                      className="flex items-center justify-between px-3 py-2.5 text-[0.72rem] font-semibold"
+                    >
+                      <span className="text-ink">{row.label}</span>
+                      {row.value === "done" ? (
+                        <Check
+                          aria-hidden="true"
+                          className="text-brand-green h-3.5 w-3.5"
+                          strokeWidth={3}
+                        />
+                      ) : (
+                        <span className="text-brand-green">{row.value}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
