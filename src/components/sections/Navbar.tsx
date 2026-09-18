@@ -38,30 +38,33 @@ export function Navbar() {
           </span>
         </a>
 
-        <ul className="text-ink-soft hidden items-center gap-6 text-[0.83rem] font-semibold xl:flex">
+        <ul className="text-ink-soft hidden items-center gap-5 text-[0.82rem] font-semibold xl:flex 2xl:gap-7">
           {nav.links.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="hover:text-brand-blue transition-colors">
+              <a
+                href={link.href}
+                className="hover:text-brand-blue whitespace-nowrap transition-colors"
+              >
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3.5 lg:flex">
           <a
             href={`tel:${nav.phone.replace(/\s/g, "")}`}
             className="text-heading flex items-center gap-2 text-sm font-bold"
           >
-            <Phone aria-hidden="true" className="text-brand-blue h-4 w-4" />
+            <Phone aria-hidden="true" className="text-brand-blue h-4 w-4 shrink-0" />
             <span className="flex flex-col leading-tight">
-              {nav.phone}
+              <span className="whitespace-nowrap">{nav.phone}</span>
               <span className="text-ink-soft text-[0.62rem] font-medium">
                 {nav.callback}
               </span>
             </span>
           </a>
-          <DemoButton className="px-4.5 py-2.5 text-[0.85rem]">
+          <DemoButton className="px-4.5 py-2.5 text-[0.85rem] whitespace-nowrap">
             {nav.cta.label}
           </DemoButton>
         </div>
