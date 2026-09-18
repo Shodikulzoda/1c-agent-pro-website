@@ -10,7 +10,7 @@ Tailwind). One checkbox per step in the approved plan; each lands as its own com
       Color/type tokens (Tailwind v4 `@theme`), fonts (Manrope + Inter via `next/font`),
       automatic dark mode, base UI primitives (`Button`, `Container`, `SectionHeading`,
       `Eyebrow`). Build/lint/typecheck verified clean.
-- [ ] **Step 3 — Content layer**
+- [x] **Step 3 — Content layer**
       Typed copy module (`src/content/site.ts`) for nav, hero, stats, process steps,
       features, industries, dashboard, pricing, CTA, footer.
 - [ ] **Step 4 — Section components**
