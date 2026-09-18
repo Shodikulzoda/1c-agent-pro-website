@@ -31,5 +31,5 @@ Tailwind). One checkbox per step in the approved plan; each lands as its own com
       `metadataBase` via `NEXT_PUBLIC_SITE_URL`. All decorative icons marked
       `aria-hidden`. Semantic landmarks already in place (`nav`/`header`/`main`/`footer`,
       one `h1`, `h2` per section). Clean lint/typecheck/build.
-- [ ] **Step 7 — Push & wrap-up**
-      Push to GitHub private repo, final walkthrough, ask about deployment.
+- [x] **Step 7 — Push & wrap-up**
+      All commits pushed to the private GitHub repo. See README for run instructions.
