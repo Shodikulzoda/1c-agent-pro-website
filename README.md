@@ -21,17 +21,20 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Running with Docker
 
-No local Node install needed — either mode serves on [http://localhost:3000](http://localhost:3000).
+No local Node install needed.
 
 ```bash
-# Production-like preview (real build, closest to what ships)
 docker compose up --build
-
-# Hot-reload dev server (bind-mounts your source, edits apply live)
-docker compose --profile dev up dev --build
 ```
 
-Stop with `docker compose down` (add `--profile dev` if that's the one running).
+Open [http://localhost:3000](http://localhost:3000). Source is bind-mounted, so edits on
+the host hot-reload inside the container. Stop with `docker compose down`.
+
+For a production-like preview (real build, closest to what ships) instead:
+
+```bash
+docker compose --profile prod up prod --build
+```
 
 ## Deployment
 
