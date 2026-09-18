@@ -21,15 +21,15 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Command                | Purpose                              |
-| ----------------------- | ------------------------------------- |
-| `npm run dev`           | Local dev server                      |
-| `npm run build`         | Production build                      |
-| `npm run start`         | Serve the production build            |
-| `npm run lint`          | ESLint                                |
-| `npm run typecheck`     | `tsc --noEmit`                        |
-| `npm run format`        | Prettier — write                      |
-| `npm run format:check`  | Prettier — check only                 |
+| Command                | Purpose                    |
+| ---------------------- | -------------------------- |
+| `npm run dev`          | Local dev server           |
+| `npm run build`        | Production build           |
+| `npm run start`        | Serve the production build |
+| `npm run lint`         | ESLint                     |
+| `npm run typecheck`    | `tsc --noEmit`             |
+| `npm run format`       | Prettier — write           |
+| `npm run format:check` | Prettier — check only      |
 
 ## Project structure
 

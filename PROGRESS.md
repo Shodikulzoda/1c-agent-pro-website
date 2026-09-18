@@ -6,9 +6,10 @@ Tailwind). One checkbox per step in the approved plan; each lands as its own com
 - [x] **Step 1 — Repo + project scaffold**
       Next.js (App Router, TS, Tailwind v4, ESLint) + Prettier + lucide-react. README and
       this checklist added.
-- [ ] **Step 2 — Design system / theme foundation**
-      Color/type tokens, fonts (Manrope + Inter via `next/font`), dark mode, base UI
-      primitives (`Button`, `Container`, `SectionHeading`, `Eyebrow`).
+- [x] **Step 2 — Design system / theme foundation**
+      Color/type tokens (Tailwind v4 `@theme`), fonts (Manrope + Inter via `next/font`),
+      automatic dark mode, base UI primitives (`Button`, `Container`, `SectionHeading`,
+      `Eyebrow`). Build/lint/typecheck verified clean.
 - [ ] **Step 3 — Content layer**
       Typed copy module (`src/content/site.ts`) for nav, hero, stats, process steps,
       features, industries, dashboard, pricing, CTA, footer.
