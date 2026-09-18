@@ -64,11 +64,6 @@ export function Navbar() {
           <Button href={nav.cta.href} className="px-4.5 py-2.5 text-[0.85rem]">
             {nav.cta.label}
           </Button>
-          <span className="text-ink-soft flex items-center gap-1 text-xs font-bold">
-            <span className="text-brand-blue">{nav.locales[0]}</span>
-            <span className="text-line">|</span>
-            <span>{nav.locales[1]}</span>
-          </span>
         </div>
 
         <button

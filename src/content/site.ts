@@ -10,7 +10,6 @@ export const nav: {
   phone: string;
   callback: string;
   cta: { label: string; href: string };
-  locales: string[];
 } = {
   brand: "1C Agent Pro",
   tagline: "Мобильное рабочее место торгового представителя",
@@ -25,7 +24,6 @@ export const nav: {
   phone: "+992 92 123 45 67",
   callback: "Заказать звонок",
   cta: { label: "Получить демо", href: "#pricing" },
-  locales: ["RU", "TJ"],
 };
 
 export const hero = {
