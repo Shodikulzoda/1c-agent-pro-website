@@ -1,5 +1,7 @@
-import { Button } from "@/components/ui/Button";
+import { MessageCircle } from "lucide-react";
+import { DemoButton } from "@/components/demo/DemoButton";
 import { cta } from "@/content/site";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 export function CtaBand() {
   return (
@@ -12,12 +14,16 @@ export function CtaBand() {
           {cta.description}
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3.5">
-          <Button href={cta.primary.href} variant="inverse">
-            {cta.primary.label} →
-          </Button>
-          <Button href={cta.secondary.href} variant="inverse-outline">
+          <DemoButton variant="inverse">{cta.primary.label} →</DemoButton>
+          <a
+            href={whatsappUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-5.5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/15"
+          >
+            <MessageCircle aria-hidden="true" className="h-4 w-4" />
             {cta.secondary.label}
-          </Button>
+          </a>
         </div>
       </div>
     </section>

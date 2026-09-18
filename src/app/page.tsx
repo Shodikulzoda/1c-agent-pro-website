@@ -9,10 +9,12 @@ import { ManagerDashboard } from "@/components/sections/ManagerDashboard";
 import { Pricing } from "@/components/sections/Pricing";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Footer } from "@/components/sections/Footer";
+import { DemoModalProvider } from "@/components/demo/DemoModalProvider";
+import { WhatsAppFab } from "@/components/demo/WhatsAppFab";
 
 export default function Home() {
   return (
-    <>
+    <DemoModalProvider>
       <Navbar />
       <main className="flex-1">
         <Hero />
@@ -26,6 +28,7 @@ export default function Home() {
         <CtaBand />
       </main>
       <Footer />
-    </>
+      <WhatsAppFab />
+    </DemoModalProvider>
   );
 }

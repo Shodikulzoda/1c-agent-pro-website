@@ -1,8 +1,8 @@
 import { Check, Play } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { MountainBackdrop } from "@/components/ui/MountainBackdrop";
+import { DemoButton } from "@/components/demo/DemoButton";
 import { hero } from "@/content/site";
 
 export function Hero() {
@@ -61,9 +61,7 @@ export function Hero() {
             className="enter mt-8 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "280ms" }}
           >
-            <Button href={hero.primaryCta.href} variant="yellow">
-              {hero.primaryCta.label} →
-            </Button>
+            <DemoButton variant="yellow">{hero.primaryCta.label} →</DemoButton>
             <a
               href={hero.secondaryCta.href}
               className="text-heading group inline-flex items-center gap-2.5 text-sm font-bold"

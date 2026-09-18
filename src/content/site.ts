@@ -344,7 +344,7 @@ export const cta = {
   description:
     "Оставьте заявку — подберём тариф, проведём демонстрацию 1C Agent Pro и рассчитаем стоимость для вашей команды.",
   primary: { label: "Запросить демо", href: "#" },
-  secondary: { label: "WhatsApp / Telegram", href: "#" },
+  secondary: { label: "Написать в WhatsApp", href: "#" },
 } as const;
 
 export const footer = {
@@ -352,4 +352,28 @@ export const footer = {
   phone: "+992 92 123 45 67",
   tagline: "Дистрибуция, розница, HoReCa",
   copyright: "© 2026 1C Agent Pro",
+} as const;
+
+export const whatsappPrefill =
+  "Здравствуйте! Хочу узнать больше о 1C Agent Pro и получить демо.";
+
+export const demoForm = {
+  triggerLabel: "Получить демо",
+  title: "Получить демо 1C Agent Pro",
+  subtitle: "Оставьте контакты — перезвоним, ответим на вопросы и проведём демонстрацию.",
+  fields: {
+    name: { label: "Имя", placeholder: "Как к вам обращаться" },
+    phone: { label: "Телефон", placeholder: "+992 __ ___ __ __" },
+    email: { label: "Email", placeholder: "you@company.com", optional: "необязательно" },
+  },
+  submit: "Отправить заявку",
+  submitting: "Отправляем…",
+  whatsapp: "Написать в WhatsApp",
+  success: {
+    title: "Заявка отправлена!",
+    text: "Мы свяжемся с вами в ближайшее время. Спасибо за интерес к 1C Agent Pro.",
+  },
+  error: "Не удалось отправить. Попробуйте ещё раз или напишите нам в WhatsApp.",
+  consent:
+    "Нажимая «Отправить заявку», вы соглашаетесь на обработку персональных данных.",
 } as const;

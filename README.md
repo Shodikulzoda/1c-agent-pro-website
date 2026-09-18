@@ -42,11 +42,28 @@ For a production-like preview (real build, closest to what ships) instead:
 docker compose --profile prod up prod --build
 ```
 
-## Deployment
+## Environment variables
 
-Set `NEXT_PUBLIC_SITE_URL` to the site's real domain (e.g. `https://1c-agent-pro.example`)
-in the hosting provider's environment variables — it resolves the absolute URLs for the
-Open Graph/Twitter share image. It falls back to `http://localhost:3000` in local dev.
+All optional — the site runs without any of them. Put them in `.env.local` (local) or the
+hosting provider's env settings (production).
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Site's real domain — resolves absolute OG/Twitter share-image URLs. Falls back to `http://localhost:3000`. |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number, international format, digits only (e.g. `992921234567`). Used by the floating button and demo modal. |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Google reCAPTCHA v2 site key. The demo form shows the captcha only when this is set. |
+| `RECAPTCHA_SECRET_KEY` | reCAPTCHA v2 secret. `/api/lead` verifies the captcha only when this is set. |
+| `LEAD_WEBHOOK_URL` | Where demo leads are delivered — a `POST` with `{ name, phone, email, at }` (Telegram bot, Make/Zapier, CRM…). If empty, leads are logged to the server console. |
+
+`NEXT_PUBLIC_*` values are read at build time; the rest are read at runtime by the API route.
+
+## Demo request flow
+
+The "Получить демо" / "Узнать подробнее" / "Запросить демо" buttons open a modal with a
+lead form (name + phone required, email optional, reCAPTCHA when configured). Submissions
+`POST` to `/api/lead`, which validates, verifies the captcha (if a secret is set), and
+forwards to `LEAD_WEBHOOK_URL` (if set). A floating WhatsApp button and an in-modal
+WhatsApp link deep-link to `wa.me` with a prefilled message.
 
 ## Scripts
 

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { DemoButton } from "@/components/demo/DemoButton";
 import { nav } from "@/content/site";
 
 export function Navbar() {
@@ -61,9 +61,9 @@ export function Navbar() {
               </span>
             </span>
           </a>
-          <Button href={nav.cta.href} className="px-4.5 py-2.5 text-[0.85rem]">
+          <DemoButton className="px-4.5 py-2.5 text-[0.85rem]">
             {nav.cta.label}
-          </Button>
+          </DemoButton>
         </div>
 
         <button
@@ -102,13 +102,9 @@ export function Navbar() {
               <Phone aria-hidden="true" className="text-brand-blue h-4 w-4" />
               {nav.phone}
             </a>
-            <Button
-              href={nav.cta.href}
-              onClick={() => setOpen(false)}
-              className="mt-2 justify-center"
-            >
+            <DemoButton onClick={() => setOpen(false)} className="mt-2 justify-center">
               {nav.cta.label}
-            </Button>
+            </DemoButton>
           </Container>
         </div>
       ) : null}
