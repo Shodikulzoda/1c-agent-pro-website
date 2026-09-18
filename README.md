@@ -19,6 +19,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Running with Docker
+
+No local Node install needed — either mode serves on [http://localhost:3000](http://localhost:3000).
+
+```bash
+# Production-like preview (real build, closest to what ships)
+docker compose up --build
+
+# Hot-reload dev server (bind-mounts your source, edits apply live)
+docker compose --profile dev up dev --build
+```
+
+Stop with `docker compose down` (add `--profile dev` if that's the one running).
+
 ## Deployment
 
 Set `NEXT_PUBLIC_SITE_URL` to the site's real domain (e.g. `https://1c-agent-pro.example`)

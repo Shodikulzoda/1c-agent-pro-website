@@ -1,0 +1,27 @@
+services:
+  # Production-like preview: `docker compose up --build`
+  # Builds the real production bundle and serves it — closest to what ships.
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+
+  # Hot-reload dev server: `docker compose --profile dev up dev --build`
+  # Bind-mounts the source tree so edits on the host show up immediately.
+  dev:
+    profiles: ["dev"]
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next

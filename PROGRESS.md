@@ -33,3 +33,8 @@ Tailwind). One checkbox per step in the approved plan; each lands as its own com
       one `h1`, `h2` per section). Clean lint/typecheck/build.
 - [x] **Step 7 — Push & wrap-up**
       All commits pushed to the private GitHub repo. See README for run instructions.
+- [x] **Step 8 — Docker for local testing**
+      Multi-stage production `Dockerfile` (standalone Next.js output, non-root user) and
+      a `Dockerfile.dev` for hot-reload. `docker-compose.yml` exposes both as `web`
+      (prod preview) and `dev` (bind-mounted, live-reloading). Verified end-to-end: built
+      and served both, confirmed a host-side edit hot-reloads inside the `dev` container.
