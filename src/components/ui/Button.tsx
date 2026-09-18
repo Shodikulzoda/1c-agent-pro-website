@@ -27,7 +27,7 @@ type ButtonProps = ButtonAsLink | ButtonAsButton;
 export function Button({ variant = "primary", className, ...props }: ButtonProps) {
   const classes = cn(
     "inline-flex items-center gap-2 rounded-xl px-5.5 py-3 text-sm font-bold",
-    "transition-[transform,filter] duration-150 ease-out hover:-translate-y-0.5",
+    "transition-[filter] duration-150 ease-out motion-safe:transition-[transform,filter] motion-safe:hover:-translate-y-0.5",
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue",
     variants[variant],
     className,

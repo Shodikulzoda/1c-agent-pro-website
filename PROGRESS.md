@@ -20,8 +20,12 @@ Tailwind). One checkbox per step in the approved plan; each lands as its own com
       token flipped for headings but was also used as a solid background fill (stats
       band, dashboard card) — split into a fixed `--color-navy` (fills) and a flipping
       `--color-heading` (text) token.
-- [ ] **Step 5 — Interactivity & responsive polish**
-      Mobile nav, scroll-reveal motion, full responsive pass (375 / 768 / 1024 / 1440).
+- [x] **Step 5 — Interactivity & responsive polish**
+      Mobile nav (already accessible from step 4). One orchestrated, CSS-only hero
+      entrance animation (staggered, `prefers-reduced-motion`-gated, no
+      IntersectionObserver so nothing can get stuck invisible without JS). Button hover
+      lift guarded with `motion-safe:`. Audited grid breakpoints across every section —
+      all collapse sensibly from 2/6 columns down to 1 on mobile.
 - [ ] **Step 6 — SEO, accessibility, quality pass**
       Metadata/OG tags, semantic landmarks, contrast check, clean lint/typecheck/build.
 - [ ] **Step 7 — Push & wrap-up**

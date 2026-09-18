@@ -27,16 +27,27 @@ export function Hero() {
 
       <Container className="relative grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
-          <Eyebrow>{hero.eyebrow}</Eyebrow>
-          <h1 className="font-display text-heading mt-5 text-[2.1rem] leading-[1.1] font-extrabold text-balance sm:text-5xl lg:text-[3.1rem]">
+          <div className="enter">
+            <Eyebrow>{hero.eyebrow}</Eyebrow>
+          </div>
+          <h1
+            className="font-display text-heading enter mt-5 text-[2.1rem] leading-[1.1] font-extrabold text-balance sm:text-5xl lg:text-[3.1rem]"
+            style={{ animationDelay: "70ms" }}
+          >
             {hero.titleLine1} {hero.titleLine2}{" "}
             <span className="text-brand-green">{hero.titleAccent}</span>
           </h1>
-          <p className="text-ink-soft mt-4.5 max-w-lg text-base leading-relaxed sm:text-lg">
+          <p
+            className="text-ink-soft enter mt-4.5 max-w-lg text-base leading-relaxed sm:text-lg"
+            style={{ animationDelay: "140ms" }}
+          >
             {hero.description}
           </p>
 
-          <ul className="mt-6.5 flex flex-col gap-3">
+          <ul
+            className="enter mt-6.5 flex flex-col gap-3"
+            style={{ animationDelay: "210ms" }}
+          >
             {hero.checklist.map((item) => (
               <li
                 key={item}
@@ -50,7 +61,10 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-3.5">
+          <div
+            className="enter mt-8 flex flex-wrap gap-3.5"
+            style={{ animationDelay: "280ms" }}
+          >
             <Button href={hero.primaryCta.href}>{hero.primaryCta.label} →</Button>
             <Button href={hero.secondaryCta.href} variant="ghost">
               {hero.secondaryCta.label}
@@ -58,7 +72,10 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[280px]">
+        <div
+          className="enter relative mx-auto w-full max-w-[280px]"
+          style={{ animationDelay: "180ms" }}
+        >
           <div
             aria-hidden
             className="border-line bg-surface shadow-brand-navy/15 text-heading absolute -top-4 -left-6 z-10 flex items-center gap-2 rounded-2xl border px-3.5 py-2.5 text-xs font-bold shadow-xl sm:-left-10"
