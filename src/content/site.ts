@@ -523,6 +523,7 @@ export const demoForm = {
       ],
     },
     email: { label: "Email", placeholder: "you@company.com", optional: "необязательно" },
+    message: { label: "Сообщение", placeholder: "Кратко опишите вашу задачу или вопрос", optional: "необязательно" },
   },
   submit: "Отправить заявку",
   submitting: "Отправляем…",

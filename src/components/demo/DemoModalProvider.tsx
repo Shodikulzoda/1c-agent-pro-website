@@ -154,6 +154,7 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
           name: data.get("name"),
           phone: data.get("phone"),
           email: data.get("email"),
+          message: data.get("message"),
           recaptchaToken,
         }),
       });
@@ -263,6 +264,20 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
                 placeholder={demoForm.fields.email.placeholder}
                 autoComplete="email"
               />
+
+              <label htmlFor="demo-message" className="flex flex-col gap-1.5">
+                <span className="text-ink text-[0.8rem] font-semibold">
+                  {demoForm.fields.message.label}
+                  <span className="text-ink-soft font-normal"> — {demoForm.fields.message.optional}</span>
+                </span>
+                <textarea
+                  id="demo-message"
+                  name="message"
+                  rows={3}
+                  placeholder={demoForm.fields.message.placeholder}
+                  className="border-line bg-surface text-ink focus:border-brand-blue focus:ring-brand-blue/20 resize-none rounded-xl border px-3.5 py-3 text-sm outline-none focus:ring-4"
+                />
+              </label>
 
               <div ref={captchaRef} className="mt-1" />
 

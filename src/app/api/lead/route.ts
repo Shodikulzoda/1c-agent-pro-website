@@ -4,6 +4,7 @@ type LeadPayload = {
   name?: unknown;
   phone?: unknown;
   email?: unknown;
+  message?: unknown;
   recaptchaToken?: unknown;
 };
 
@@ -41,6 +42,7 @@ export async function POST(request: Request) {
   const name = asString(body.name);
   const phone = asString(body.phone);
   const email = asString(body.email);
+  const message = asString(body.message);
   const recaptchaToken = asString(body.recaptchaToken);
 
   if (name.length < 2) {
@@ -58,7 +60,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Проверка капчи не пройдена." }, { status: 400 });
   }
 
-  const lead = { name, phone, email, at: new Date().toISOString() };
+  const lead = { name, phone, email, message, at: new Date().toISOString() };
 
   const tgToken = process.env.TELEGRAM_BOT_TOKEN;
   const tgChat = process.env.TELEGRAM_CHAT_ID;
@@ -70,6 +72,7 @@ export async function POST(request: Request) {
       `👤 <b>Имя:</b> ${name}`,
       `📞 <b>Телефон:</b> ${phone}`,
       email ? `📧 <b>Email:</b> ${email}` : null,
+      message ? `💬 <b>Сообщение:</b> ${message}` : null,
       "",
       `🕐 ${new Date().toLocaleString("ru-RU", { timeZone: "Asia/Dushanbe" })}`,
     ]
