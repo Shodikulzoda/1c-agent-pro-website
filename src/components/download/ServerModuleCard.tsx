@@ -1,15 +1,67 @@
 "use client";
 
-import { useState } from "react";
-import { Download, FileCode, Info } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Download, FileCode, Info, ShieldCheck } from "lucide-react";
 import { downloadPage } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 const { serverModule } = downloadPage;
 
+const RECAPTCHA_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      render: (el: HTMLElement, opts: Record<string, unknown>) => number;
+      reset: (id?: number) => void;
+    };
+  }
+}
+
 export function ServerModuleCard() {
   const [selected, setSelected] = useState(serverModule.configs[0].id);
+  const [captchaSolved, setCaptchaSolved] = useState(false);
+  const captchaRef = useRef<HTMLDivElement>(null);
+  const captchaId = useRef<number | null>(null);
   const config = serverModule.configs.find((c) => c.id === selected)!;
+
+  // Load reCAPTCHA script once
+  useEffect(() => {
+    const scriptId = "recaptcha-api";
+    if (!document.getElementById(scriptId)) {
+      const s = document.createElement("script");
+      s.id = scriptId;
+      s.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+
+    let cancelled = false;
+    const tryRender = () => {
+      if (cancelled) return;
+      if (window.grecaptcha && captchaRef.current && captchaId.current === null) {
+        captchaId.current = window.grecaptcha.render(captchaRef.current, {
+          sitekey: RECAPTCHA_SITE_KEY,
+          callback: () => setCaptchaSolved(true),
+          "expired-callback": () => setCaptchaSolved(false),
+        });
+      } else if (captchaId.current === null) {
+        setTimeout(tryRender, 300);
+      }
+    };
+    tryRender();
+    return () => { cancelled = true; };
+  }, []);
+
+  // Reset captcha when config changes
+  useEffect(() => {
+    setCaptchaSolved(false);
+    if (window.grecaptcha && captchaId.current !== null) {
+      window.grecaptcha.reset(captchaId.current);
+    }
+  }, [selected]);
 
   return (
     <div className="border-line bg-surface flex flex-col rounded-[22px] border overflow-hidden">
@@ -66,19 +118,40 @@ export function ServerModuleCard() {
           </div>
 
           {config.fileUrl ? (
-            <a
-              href={config.fileUrl}
-              download
-              className="bg-brand-blue hover:bg-brand-blue/90 mt-4 flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white transition-colors"
-            >
-              <Download className="h-4 w-4" strokeWidth={2.5} />
-              Скачать {config.fileName}
-            </a>
+            <>
+              {/* Captcha gate */}
+              {!captchaSolved && (
+                <div className="mt-4 flex flex-col items-center gap-3">
+                  <p className="flex items-center gap-1.5 text-[0.75rem] text-ink-soft font-medium">
+                    <ShieldCheck className="h-3.5 w-3.5 text-brand-blue shrink-0" />
+                    Подтвердите, что вы не робот — затем скачайте файл
+                  </p>
+                  <div ref={captchaRef} />
+                </div>
+              )}
+              {captchaSolved && (
+                <div className="mt-4 flex flex-col gap-2">
+                  <div ref={captchaRef} className="hidden" />
+                  <a
+                    href={config.fileUrl}
+                    download
+                    className="bg-brand-blue hover:bg-brand-blue/90 flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white transition-colors"
+                  >
+                    <Download className="h-4 w-4" strokeWidth={2.5} />
+                    Скачать {config.fileName}
+                  </a>
+                </div>
+              )}
+            </>
           ) : (
-            <div className="mt-4 flex w-full flex-col items-center gap-1.5 rounded-xl border border-dashed border-gray-200 bg-gray-50 py-3.5 text-center dark:border-white/10 dark:bg-white/5">
-              <p className="text-ink text-[0.8rem] font-semibold">Файл готовится к загрузке</p>
-              <p className="text-ink-soft text-[0.7rem]">Будет доступен в ближайшее время</p>
-            </div>
+            <>
+              <div className="mt-4 flex w-full flex-col items-center gap-1.5 rounded-xl border border-dashed border-gray-200 bg-gray-50 py-3.5 text-center dark:border-white/10 dark:bg-white/5">
+                <p className="text-ink text-[0.8rem] font-semibold">Файл готовится к загрузке</p>
+                <p className="text-ink-soft text-[0.7rem]">Будет доступен в ближайшее время</p>
+              </div>
+              {/* Hidden captcha div (still mounts for consistency) */}
+              <div ref={captchaRef} className="hidden" />
+            </>
           )}
         </div>
 

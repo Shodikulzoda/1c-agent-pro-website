@@ -157,7 +157,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
         body: JSON.stringify({
           name: data.get("name"),
           phone: data.get("phone"),
-          country: data.get("country"),
           config: data.get("config"),
           email: data.get("email"),
           recaptchaToken,
@@ -259,14 +258,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
                 placeholder={demoForm.fields.phone.placeholder}
                 required
                 autoComplete="tel"
-              />
-              <SelectField
-                id="demo-country"
-                name="country"
-                label={demoForm.fields.country.label}
-                placeholder={demoForm.fields.country.placeholder}
-                options={demoForm.fields.country.options as unknown as string[]}
-                required
               />
               <SelectField
                 id="demo-config"
