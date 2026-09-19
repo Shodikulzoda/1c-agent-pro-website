@@ -8,8 +8,13 @@ export function Footer() {
         <span className="text-heading font-display text-[0.95rem] font-extrabold">
           {footer.brand}
         </span>
-        <span>
-          {footer.phone}{footer.tagline ? ` · ${footer.tagline}` : ""}
+        <span className="flex flex-col gap-0.5 sm:items-end">
+          {footer.phones.map((p) => (
+            <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-brand-blue transition-colors">
+              {p}
+            </a>
+          ))}
+          {footer.tagline ? <span>{footer.tagline}</span> : null}
         </span>
         <span>{footer.copyright}</span>
       </Container>

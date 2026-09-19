@@ -22,7 +22,7 @@ export const nav: {
     { label: "Тарифы", href: "#pricing" },
     { label: "Контакты", href: "#cta" },
   ],
-  phone: "+992 92 123 45 67",
+  phone: "+992 92 864 69 00",
   callback: "Заказать звонок",
   cta: { label: "Оставить заявку", href: "#pricing" },
 };
@@ -467,7 +467,7 @@ export const cta = {
 
 export const footer = {
   brand: "1C Agent Pro",
-  phone: "+992 92 123 45 67",
+  phones: ["+992 92 864 69 00", "+992 92 990 94 64"],
   tagline: "",
   copyright: "© 2026 1C Agent Pro",
 } as const;
