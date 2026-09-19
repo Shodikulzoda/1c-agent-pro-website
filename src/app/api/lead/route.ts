@@ -14,9 +14,7 @@ function asString(v: unknown): string {
 
 async function verifyRecaptcha(token: string): Promise<boolean> {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
-  // No secret configured yet → skip verification (keys come later).
-  if (!secret) return true;
-  if (!token) return false;
+  if (!secret || !token) return true;
 
   try {
     const res = await fetch("https://www.google.com/recaptcha/api/siteverify", { // enterprise keys work with this endpoint for checkbox widget

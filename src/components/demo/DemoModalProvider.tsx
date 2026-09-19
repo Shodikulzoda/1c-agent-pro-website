@@ -119,15 +119,18 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     let recaptchaToken = "";
     if (RECAPTCHA_SITE_KEY && window.grecaptcha?.enterprise) {
       try {
-        recaptchaToken = await new Promise<string>((resolve) => {
-          window.grecaptcha!.enterprise.ready(async () => {
-            const token = await window.grecaptcha!.enterprise.execute(
-              RECAPTCHA_SITE_KEY,
-              { action: "submit_lead" },
-            );
-            resolve(token);
-          });
-        });
+        recaptchaToken = await Promise.race([
+          new Promise<string>((resolve) => {
+            window.grecaptcha!.enterprise.ready(async () => {
+              const token = await window.grecaptcha!.enterprise.execute(
+                RECAPTCHA_SITE_KEY,
+                { action: "submit_lead" },
+              );
+              resolve(token);
+            });
+          }),
+          new Promise<string>((resolve) => setTimeout(() => resolve(""), 5000)),
+        ]);
       } catch {
         recaptchaToken = "";
       }
