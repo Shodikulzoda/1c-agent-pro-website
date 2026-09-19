@@ -50,6 +50,28 @@ export function Implementation() {
             </div>
           ))}
         </div>
+
+        {/* Compatibility */}
+        <div className="border-line bg-surface rounded-2xl border p-6">
+          <div className="mb-4 flex flex-wrap items-center gap-3">
+            <p className="text-ink text-[0.9rem] font-bold">
+              {implementation.compatibility.label}
+            </p>
+            <span className="bg-brand-blue/10 text-brand-blue rounded-full px-3 py-1 text-[0.72rem] font-semibold">
+              {implementation.compatibility.platform}
+            </span>
+          </div>
+          <ul className="flex flex-wrap gap-2">
+            {implementation.compatibility.configs.map((cfg) => (
+              <li
+                key={cfg}
+                className="border-line text-ink-soft rounded-lg border px-3 py-1.5 text-[0.78rem]"
+              >
+                {cfg}
+              </li>
+            ))}
+          </ul>
+        </div>
       </Container>
     </section>
   );
