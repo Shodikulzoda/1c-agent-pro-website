@@ -123,7 +123,7 @@ export const advantages = {
     {
       icon: "gem",
       title: "Подходит для любой отрасли",
-      description: "Дистрибуция, опт, производство, розничные сети и FMCG.",
+      description: "Дистрибуция, опт, производство.",
     },
   ],
 } as const;
