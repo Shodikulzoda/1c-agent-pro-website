@@ -219,8 +219,7 @@ export const features = {
 export const industries = {
   eyebrow: "Решение для любого бизнеса",
   title: "Для кого подходит 1C Agent Pro",
-  description:
-    "Одно решение для разных моделей полевых продаж — от дистрибуции до HoReCa.",
+  description: "Одно решение для разных моделей полевых продаж.",
   items: [
     {
       icon: "truck",
