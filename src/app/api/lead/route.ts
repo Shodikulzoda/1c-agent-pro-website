@@ -87,6 +87,14 @@ export async function POST(request: Request) {
             chat_id: tgChat,
             text: lines,
             parse_mode: "HTML",
+            reply_markup: {
+              inline_keyboard: [
+                [
+                  { text: "✅ Взять в работу", callback_data: "claim" },
+                  { text: "❌ Отклонить", callback_data: "discard" },
+                ],
+              ],
+            },
           }),
         },
       );
