@@ -489,9 +489,10 @@ export const cta = {
 
 export const footer = {
   brand: "1C Agent Pro",
+  tagline: "Мобильное рабочее место торгового представителя",
   phones: ["+992 92 864 69 00", "+992 92 990 94 64"],
-  tagline: "",
-  copyright: "© 2026 1C Agent Pro",
+  address: "г. Худжанд, ул. Гагарина 137",
+  copyright: "© 2026 1C Agent Pro. Все права защищены.",
 } as const;
 
 export const playMarketUrl =
