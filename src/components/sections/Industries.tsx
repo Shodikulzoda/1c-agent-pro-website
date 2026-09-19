@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { icons } from "@/lib/icons";
@@ -7,14 +7,18 @@ import { industries } from "@/content/site";
 export function Industries() {
   return (
     <section className="py-18 sm:py-24">
-      <Container className="flex flex-col gap-11">
-        <div id="industries" className="scroll-mt-20">
+      <Container className="flex flex-col gap-10">
+        <div id="industries" className="scroll-mt-20 flex flex-col items-center gap-5">
           <SectionHeading
             align="center"
             eyebrow={industries.eyebrow}
             title={industries.title}
             description={industries.description}
           />
+          <p className="flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-[0.78rem] text-red-700 max-w-xl text-center dark:border-red-900/40 dark:bg-red-950/30 dark:text-red-400">
+            <X className="mt-0.5 h-3.5 w-3.5 shrink-0" strokeWidth={2.5} />
+            {industries.notFor}
+          </p>
         </div>
 
         <div className="mx-auto grid w-full max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -23,8 +27,9 @@ export function Industries() {
             return (
               <div
                 key={industry.title}
-                className="border-line bg-surface rounded-2xl border p-5.5"
+                className="border-line bg-surface relative overflow-hidden rounded-2xl border p-5.5"
               >
+                <div className="absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-brand-blue" />
                 <span className="bg-brand-navy mb-3.5 flex h-9.5 w-9.5 items-center justify-center rounded-[10px] text-white">
                   <Icon
                     aria-hidden="true"
