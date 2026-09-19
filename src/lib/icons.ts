@@ -5,7 +5,9 @@ import {
   CheckCircle2,
   ClipboardList,
   Factory,
+  FileCode,
   Gem,
+  GraduationCap,
   Headphones,
   LayoutDashboard,
   MapPin,
@@ -14,6 +16,8 @@ import {
   RefreshCw,
   Rocket,
   Route,
+  Settings,
+  ShieldCheck,
   ShoppingCart,
   Smartphone,
   Store,
@@ -51,6 +55,10 @@ export const icons = {
   "trending-up": TrendingUp,
   headphones: Headphones,
   gem: Gem,
+  settings: Settings,
+  "graduation-cap": GraduationCap,
+  "shield-check": ShieldCheck,
+  "file-code": FileCode,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof icons;
