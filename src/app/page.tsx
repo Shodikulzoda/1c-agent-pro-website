@@ -7,6 +7,7 @@ import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
 import { Industries } from "@/components/sections/Industries";
 import { ManagerDashboard } from "@/components/sections/ManagerDashboard";
 import { Implementation } from "@/components/sections/Implementation";
+import { ValueProps } from "@/components/sections/ValueProps";
 import { Pricing } from "@/components/sections/Pricing";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Footer } from "@/components/sections/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
         <Industries />
         <ManagerDashboard />
         <Implementation />
+        <ValueProps />
         <Pricing />
         <CtaBand />
       </main>
