@@ -484,7 +484,7 @@ export const cta = {
   title: "Готовы навести порядок в полевых продажах?",
   description:
     "Оставьте заявку — подберём тариф, проведём демонстрацию 1C Agent Pro и рассчитаем стоимость для вашей команды.",
-  primary: { label: "Запросить демо", href: "#" },
+  primary: { label: "Оставить заявку", href: "#" },
   secondary: { label: "Написать в WhatsApp", href: "#" },
 } as const;
 
