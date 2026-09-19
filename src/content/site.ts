@@ -19,6 +19,7 @@ export const nav: {
     { label: "Как это работает", href: "#process" },
     { label: "Возможности", href: "#features" },
     { label: "Для кого", href: "#industries" },
+    { label: "Внедрение", href: "#implementation" },
     { label: "Тарифы", href: "#pricing" },
     { label: "Контакты", href: "#cta" },
   ],
