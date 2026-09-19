@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 type LeadPayload = {
   name?: unknown;
   phone?: unknown;
+  country?: unknown;
+  config?: unknown;
   email?: unknown;
   recaptchaToken?: unknown;
 };
@@ -40,6 +42,8 @@ export async function POST(request: Request) {
 
   const name = asString(body.name);
   const phone = asString(body.phone);
+  const country = asString(body.country);
+  const config = asString(body.config);
   const email = asString(body.email);
   const recaptchaToken = asString(body.recaptchaToken);
 
@@ -58,7 +62,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Проверка капчи не пройдена." }, { status: 400 });
   }
 
-  const lead = { name, phone, email, at: new Date().toISOString() };
+  const lead = { name, phone, country, config, email, at: new Date().toISOString() };
 
   // Forward to a configured webhook (Telegram bot, Make/Zapier, CRM, …).
   // Until LEAD_WEBHOOK_URL is set, the lead is just logged server-side.

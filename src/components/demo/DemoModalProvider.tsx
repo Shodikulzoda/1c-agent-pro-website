@@ -24,7 +24,9 @@ export function useDemoModal() {
   return ctx;
 }
 
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+// Google's official test key renders the widget; swap for real key via env var.
+const RECAPTCHA_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -139,7 +141,7 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     const data = new FormData(form);
 
     let recaptchaToken = "";
-    if (RECAPTCHA_SITE_KEY && window.grecaptcha) {
+    if (window.grecaptcha) {
       recaptchaToken = window.grecaptcha.getResponse(captchaId.current ?? undefined);
       if (!recaptchaToken) {
         setStatus("error");
@@ -155,6 +157,8 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
         body: JSON.stringify({
           name: data.get("name"),
           phone: data.get("phone"),
+          country: data.get("country"),
+          config: data.get("config"),
           email: data.get("email"),
           recaptchaToken,
         }),
@@ -256,6 +260,22 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
                 required
                 autoComplete="tel"
               />
+              <SelectField
+                id="demo-country"
+                name="country"
+                label={demoForm.fields.country.label}
+                placeholder={demoForm.fields.country.placeholder}
+                options={demoForm.fields.country.options as unknown as string[]}
+                required
+              />
+              <SelectField
+                id="demo-config"
+                name="config"
+                label={demoForm.fields.config.label}
+                placeholder={demoForm.fields.config.placeholder}
+                options={demoForm.fields.config.options as unknown as string[]}
+                required
+              />
               <Field
                 id="demo-email"
                 name="email"
@@ -266,7 +286,7 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
                 autoComplete="email"
               />
 
-              {RECAPTCHA_SITE_KEY ? <div ref={captchaRef} className="mt-1" /> : null}
+              <div ref={captchaRef} className="mt-1" />
 
               {status === "error" ? (
                 <p className="text-sm font-semibold text-red-600" role="alert">
@@ -343,6 +363,50 @@ function Field({
         autoComplete={autoComplete}
         className="border-line bg-surface text-ink focus:border-brand-blue focus:ring-brand-blue/20 rounded-xl border px-3.5 py-3 text-sm outline-none focus:ring-4"
       />
+    </label>
+  );
+}
+
+function SelectField({
+  id,
+  name,
+  label,
+  placeholder,
+  options,
+  required = false,
+}: {
+  id: string;
+  name: string;
+  label: string;
+  placeholder?: string;
+  options: string[];
+  required?: boolean;
+}) {
+  return (
+    <label htmlFor={id} className="flex flex-col gap-1.5">
+      <span className="text-ink text-[0.8rem] font-semibold">
+        {label}
+        {required ? <span className="text-red-500"> *</span> : null}
+      </span>
+      <select
+        id={id}
+        name={name}
+        required={required}
+        defaultValue=""
+        className="border-line bg-surface text-ink focus:border-brand-blue focus:ring-brand-blue/20 rounded-xl border px-3.5 py-3 text-sm outline-none focus:ring-4 appearance-none"
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 0.875rem center" }}
+      >
+        {placeholder ? (
+          <option value="" disabled>
+            {placeholder}
+          </option>
+        ) : null}
+        {options.map((opt) => (
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
     </label>
   );
 }
