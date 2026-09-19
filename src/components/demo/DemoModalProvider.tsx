@@ -33,9 +33,8 @@ declare global {
   interface Window {
     grecaptcha?: {
       enterprise: {
-        render: (el: HTMLElement, opts: Record<string, unknown>) => number;
-        getResponse: (id?: number) => string;
-        reset: (id?: number) => void;
+        ready: (cb: () => void) => void;
+        execute: (siteKey: string, opts: { action: string }) => Promise<string>;
       };
     };
   }
@@ -45,6 +44,18 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
+
+  // Preload Enterprise script once
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY) return;
+    const id = "recaptcha-enterprise";
+    if (document.getElementById(id)) return;
+    const s = document.createElement("script");
+    s.id = id;
+    s.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
+    s.async = true;
+    document.head.appendChild(s);
+  }, []);
 
   return (
     <DemoModalContext.Provider value={{ open }}>
@@ -58,9 +69,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
-  const captchaRef = useRef<HTMLDivElement>(null);
-  const captchaId = useRef<number | null>(null);
-
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -100,36 +108,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  useEffect(() => {
-    if (!RECAPTCHA_SITE_KEY) return;
-    let cancelled = false;
-
-    const scriptId = "recaptcha-api";
-    if (!document.getElementById(scriptId)) {
-      const s = document.createElement("script");
-      s.id = scriptId;
-      s.src = "https://www.google.com/recaptcha/enterprise.js?render=explicit";
-      s.async = true;
-      s.defer = true;
-      document.head.appendChild(s);
-    }
-
-    const tryRender = () => {
-      if (cancelled) return;
-      if (window.grecaptcha?.enterprise && captchaRef.current && captchaId.current === null) {
-        captchaId.current = window.grecaptcha.enterprise.render(captchaRef.current, {
-          sitekey: RECAPTCHA_SITE_KEY,
-        });
-      } else if (captchaId.current === null) {
-        setTimeout(tryRender, 300);
-      }
-    };
-    tryRender();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
@@ -139,12 +117,19 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     const data = new FormData(form);
 
     let recaptchaToken = "";
-    if (window.grecaptcha?.enterprise) {
-      recaptchaToken = window.grecaptcha.enterprise.getResponse(captchaId.current ?? undefined);
-      if (!recaptchaToken) {
-        setStatus("error");
-        setErrorMsg("Подтвердите, что вы не робот.");
-        return;
+    if (RECAPTCHA_SITE_KEY && window.grecaptcha?.enterprise) {
+      try {
+        recaptchaToken = await new Promise<string>((resolve) => {
+          window.grecaptcha!.enterprise.ready(async () => {
+            const token = await window.grecaptcha!.enterprise.execute(
+              RECAPTCHA_SITE_KEY,
+              { action: "submit_lead" },
+            );
+            resolve(token);
+          });
+        });
+      } catch {
+        recaptchaToken = "";
       }
     }
 
@@ -168,9 +153,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : demoForm.error);
-      if (RECAPTCHA_SITE_KEY && window.grecaptcha?.enterprise) {
-        window.grecaptcha.enterprise.reset(captchaId.current ?? undefined);
-      }
     }
   }
 
@@ -280,8 +262,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
                   className="border-line bg-surface text-ink focus:border-brand-blue focus:ring-brand-blue/20 resize-none rounded-xl border px-3.5 py-3 text-sm outline-none focus:ring-4"
                 />
               </label>
-
-              <div ref={captchaRef} className="mt-1" />
 
               {status === "error" ? (
                 <p className="text-sm font-semibold text-red-600" role="alert">
