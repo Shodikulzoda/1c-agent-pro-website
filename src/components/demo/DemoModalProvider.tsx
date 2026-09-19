@@ -32,9 +32,11 @@ type Status = "idle" | "submitting" | "success" | "error";
 declare global {
   interface Window {
     grecaptcha?: {
-      render: (el: HTMLElement, opts: Record<string, unknown>) => number;
-      getResponse: (id?: number) => string;
-      reset: (id?: number) => void;
+      enterprise: {
+        render: (el: HTMLElement, opts: Record<string, unknown>) => number;
+        getResponse: (id?: number) => string;
+        reset: (id?: number) => void;
+      };
     };
   }
 }
@@ -106,7 +108,7 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     if (!document.getElementById(scriptId)) {
       const s = document.createElement("script");
       s.id = scriptId;
-      s.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+      s.src = "https://www.google.com/recaptcha/enterprise.js?render=explicit";
       s.async = true;
       s.defer = true;
       document.head.appendChild(s);
@@ -114,8 +116,8 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
 
     const tryRender = () => {
       if (cancelled) return;
-      if (window.grecaptcha && captchaRef.current && captchaId.current === null) {
-        captchaId.current = window.grecaptcha.render(captchaRef.current, {
+      if (window.grecaptcha?.enterprise && captchaRef.current && captchaId.current === null) {
+        captchaId.current = window.grecaptcha.enterprise.render(captchaRef.current, {
           sitekey: RECAPTCHA_SITE_KEY,
         });
       } else if (captchaId.current === null) {
@@ -137,8 +139,8 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     const data = new FormData(form);
 
     let recaptchaToken = "";
-    if (window.grecaptcha) {
-      recaptchaToken = window.grecaptcha.getResponse(captchaId.current ?? undefined);
+    if (window.grecaptcha?.enterprise) {
+      recaptchaToken = window.grecaptcha.enterprise.getResponse(captchaId.current ?? undefined);
       if (!recaptchaToken) {
         setStatus("error");
         setErrorMsg("Подтвердите, что вы не робот.");
@@ -166,8 +168,8 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : demoForm.error);
-      if (RECAPTCHA_SITE_KEY && window.grecaptcha) {
-        window.grecaptcha.reset(captchaId.current ?? undefined);
+      if (RECAPTCHA_SITE_KEY && window.grecaptcha?.enterprise) {
+        window.grecaptcha.enterprise.reset(captchaId.current ?? undefined);
       }
     }
   }

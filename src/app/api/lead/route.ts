@@ -19,7 +19,7 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
   if (!token) return false;
 
   try {
-    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", { // enterprise keys work with this endpoint for checkbox widget
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({ secret, response: token }),
