@@ -9,7 +9,7 @@ export function Footer() {
           {footer.brand}
         </span>
         <span>
-          {footer.phone} · {footer.tagline}
+          {footer.phone}{footer.tagline ? ` · ${footer.tagline}` : ""}
         </span>
         <span>{footer.copyright}</span>
       </Container>

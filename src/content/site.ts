@@ -339,7 +339,7 @@ export const cta = {
 export const footer = {
   brand: "1C Agent Pro",
   phone: "+992 92 123 45 67",
-  tagline: "Дистрибуция, розница, HoReCa",
+  tagline: "",
   copyright: "© 2026 1C Agent Pro",
 } as const;
 
