@@ -24,7 +24,6 @@ export function useDemoModal() {
   return ctx;
 }
 
-// Google's official test key renders the widget; swap for real key via env var.
 const RECAPTCHA_SITE_KEY =
   process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
@@ -63,7 +62,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Lock body scroll, remember the trigger, restore focus on close.
   useEffect(() => {
     triggerRef.current = document.activeElement as HTMLElement | null;
     const prevOverflow = document.body.style.overflow;
@@ -75,7 +73,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     };
   }, []);
 
-  // Escape to close + basic focus trap.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -101,7 +98,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  // Render the reCAPTCHA widget once its script + a site key are available.
   useEffect(() => {
     if (!RECAPTCHA_SITE_KEY) return;
     let cancelled = false;
@@ -345,50 +341,6 @@ function Field({
         autoComplete={autoComplete}
         className="border-line bg-surface text-ink focus:border-brand-blue focus:ring-brand-blue/20 rounded-xl border px-3.5 py-3 text-sm outline-none focus:ring-4"
       />
-    </label>
-  );
-}
-
-function SelectField({
-  id,
-  name,
-  label,
-  placeholder,
-  options,
-  required = false,
-}: {
-  id: string;
-  name: string;
-  label: string;
-  placeholder?: string;
-  options: string[];
-  required?: boolean;
-}) {
-  return (
-    <label htmlFor={id} className="flex flex-col gap-1.5">
-      <span className="text-ink text-[0.8rem] font-semibold">
-        {label}
-        {required ? <span className="text-red-500"> *</span> : null}
-      </span>
-      <select
-        id={id}
-        name={name}
-        required={required}
-        defaultValue=""
-        className="border-line bg-surface text-ink focus:border-brand-blue focus:ring-brand-blue/20 rounded-xl border px-3.5 py-3 text-sm outline-none focus:ring-4 appearance-none"
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 0.875rem center" }}
-      >
-        {placeholder ? (
-          <option value="" disabled>
-            {placeholder}
-          </option>
-        ) : null}
-        {options.map((opt) => (
-          <option key={opt} value={opt}>
-            {opt}
-          </option>
-        ))}
-      </select>
     </label>
   );
 }
