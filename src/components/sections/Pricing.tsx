@@ -5,6 +5,8 @@ import { icons } from "@/lib/icons";
 import { cn } from "@/lib/cn";
 import { pricing } from "@/content/site";
 
+type Benefit = { icon: string; label: string };
+
 export function Pricing() {
   return (
     <section id="pricing" className="py-18 sm:py-24">
@@ -14,6 +16,22 @@ export function Pricing() {
           title={pricing.title}
           description={pricing.description}
         />
+
+        {/* Benefit badges */}
+        <div className="flex flex-wrap justify-center gap-3">
+          {(pricing.benefits as readonly Benefit[]).map((b) => {
+            const Icon = icons[b.icon as keyof typeof icons];
+            return (
+              <div
+                key={b.label}
+                className="border-line bg-surface flex items-center gap-2 rounded-full border px-4 py-2"
+              >
+                <Icon aria-hidden="true" className="text-brand-blue h-4 w-4 shrink-0" strokeWidth={2} />
+                <span className="text-ink text-[0.82rem] font-semibold">{b.label}</span>
+              </div>
+            );
+          })}
+        </div>
 
         {/* Tier cards */}
         <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
