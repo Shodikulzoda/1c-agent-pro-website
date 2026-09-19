@@ -22,7 +22,7 @@ const caveat = Caveat({
   weight: ["500", "700"],
 });
 
-const title = "1C Agent Pro";
+const title = "Agent Pro";
 const description =
   "1C Agent Pro — мобильное рабочее место торгового представителя с полной интеграцией с 1С: заказы, визиты, фотоотчёты и GPS-контроль маршрутов в реальном времени.";
 
