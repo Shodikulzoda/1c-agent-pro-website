@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, Phone, X } from "lucide-react";
+import { Download, Menu, Phone, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { DemoButton } from "@/components/demo/DemoButton";
 import { nav } from "@/content/site";
@@ -64,6 +64,13 @@ export function Navbar() {
               </span>
             </span>
           </a>
+          <a
+            href={nav.downloadLink.href}
+            className="border-brand-blue/30 text-brand-blue hover:bg-brand-blue/5 flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-[0.82rem] font-semibold transition-colors whitespace-nowrap"
+          >
+            <Download aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+            {nav.downloadLink.label}
+          </a>
           <DemoButton className="px-4.5 py-2.5 text-[0.85rem] whitespace-nowrap">
             {nav.cta.label}
           </DemoButton>
@@ -98,6 +105,14 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href={nav.downloadLink.href}
+              onClick={() => setOpen(false)}
+              className="text-brand-blue flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-semibold"
+            >
+              <Download aria-hidden="true" className="h-4 w-4" />
+              {nav.downloadLink.label}
+            </a>
             <a
               href={`tel:${nav.phone.replace(/\s/g, "")}`}
               className="text-heading flex items-center gap-2 px-3 py-3 text-sm font-bold"

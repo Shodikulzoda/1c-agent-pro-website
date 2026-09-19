@@ -10,6 +10,7 @@ export const nav: {
   phone: string;
   callback: string;
   cta: { label: string; href: string };
+  downloadLink: { label: string; href: string };
 } = {
   brand: "1C Agent Pro",
   tagline: "Мобильное рабочее место торгового представителя",
@@ -25,6 +26,7 @@ export const nav: {
   phone: "+992 92 123 45 67",
   callback: "Заказать звонок",
   cta: { label: "Получить демо", href: "#pricing" },
+  downloadLink: { label: "Скачать", href: "/download" },
 };
 
 export const hero = {
@@ -455,6 +457,37 @@ export const footer = {
 
 export const playMarketUrl =
   "https://play.google.com/store/apps/details?id=dv.com.agentpro";
+
+export const downloadPage = {
+  title: "Загрузить 1C Agent Pro",
+  subtitle: "Всё необходимое для запуска — мобильное приложение и серверный модуль для 1С",
+  clientApp: {
+    eyebrow: "Мобильный клиент",
+    title: "Android приложение",
+    description: "Устанавливается на смартфон торгового агента. Работает онлайн и офлайн.",
+    requirements: "Android 7.0 и выше",
+    steps: [
+      "Установите приложение из Google Play",
+      "Введите адрес вашего сервера 1С",
+      "Войдите под учётными данными агента",
+    ],
+  },
+  serverModule: {
+    eyebrow: "Серверный модуль",
+    title: "Интеграция с 1С",
+    description: "Устанавливается на сервер 1С. Обеспечивает обмен данными с мобильным приложением.",
+    requirements: "Платформа 1С 8.3.23 и выше",
+    installNote: "Файл .epf загружается в конфигуратор 1С. Установка занимает 5–15 минут.",
+    configs: [
+      { id: "ut115", name: "Управление торговлей 11.5", short: "УТ 11.5", fileUrl: null as string | null, fileName: "1C_AgentPro_UT115.epf" },
+      { id: "ka25", name: "Комплексная автоматизация 2.5", short: "КА 2.5", fileUrl: null as string | null, fileName: "1C_AgentPro_KA25.epf" },
+      { id: "erp25", name: "ERP Управление предприятием 2.5", short: "ERP 2.5", fileUrl: null as string | null, fileName: "1C_AgentPro_ERP25.epf" },
+      { id: "unf30", name: "Управление нашей фирмой 3.0", short: "УНФ 3.0", fileUrl: null as string | null, fileName: "1C_AgentPro_UNF30.epf" },
+      { id: "retail30", name: "Розница 3.0", short: "Розница 3.0", fileUrl: null as string | null, fileName: "1C_AgentPro_Retail30.epf" },
+      { id: "buh-tj30", name: "Бухгалтерия для Таджикистана 3.0", short: "Бухгалтерия ТЖ 3.0", fileUrl: null as string | null, fileName: "1C_AgentPro_BuhTJ30.epf" },
+    ],
+  },
+};
 
 export const whatsappPrefill =
   "Здравствуйте! Хочу узнать больше о 1C Agent Pro и получить демо.";
