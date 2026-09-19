@@ -134,6 +134,12 @@ export const process = {
   title: "Реальный рабочий день агента",
   description:
     "Всё, что нужно для эффективной работы — в одном приложении, от синхронизации утром до отчёта в 1С вечером.",
+  videos: [
+    { id: "iklYUgCaNnc", title: "Что такое 1C Agent Pro" },
+    { id: "w-WSbctvyDs", title: "Рабочий день агента" },
+    { id: "AfMRyq_qk4Q", title: "Работа с клиентами" },
+    { id: "b7-dx2TnBmc", title: "Установка и подключение" },
+  ],
   steps: [
     {
       icon: "refresh-cw",

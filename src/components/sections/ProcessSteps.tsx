@@ -46,6 +46,29 @@ export function ProcessSteps() {
             );
           })}
         </ol>
+
+        {/* Video row */}
+        <div className="-mx-4 overflow-x-auto px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+          <div className="flex gap-4 pb-2 lg:grid lg:grid-cols-4">
+            {process.videos.map((video) => (
+              <div key={video.id} className="w-[200px] shrink-0 lg:w-auto">
+                <div className="border-line bg-[#0a0a0a] relative overflow-hidden rounded-[22px] border shadow-lg aspect-[9/16]">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
+                    title={video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="text-ink mt-3 text-center text-[0.8rem] font-semibold leading-snug">
+                  {video.title}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </Container>
     </section>
   );
