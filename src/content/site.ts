@@ -77,7 +77,7 @@ export const advantages = {
   items: [
     {
       icon: "smartphone",
-      title: "Работает на Android и iPhone",
+      title: "Работает на Android",
       description: "Удобное мобильное приложение для любой команды.",
     },
     {
