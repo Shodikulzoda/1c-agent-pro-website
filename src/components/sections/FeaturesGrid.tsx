@@ -5,13 +5,15 @@ import { features } from "@/content/site";
 
 export function FeaturesGrid() {
   return (
-    <section id="features" className="bg-surface-tint py-18 sm:py-24">
+    <section className="bg-surface-tint py-18 sm:py-24">
       <Container className="flex flex-col gap-11">
-        <SectionHeading
-          eyebrow={features.eyebrow}
-          title={features.title}
-          description={features.description}
-        />
+        <div id="features" className="scroll-mt-20">
+          <SectionHeading
+            eyebrow={features.eyebrow}
+            title={features.title}
+            description={features.description}
+          />
+        </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.items.map((feature) => {

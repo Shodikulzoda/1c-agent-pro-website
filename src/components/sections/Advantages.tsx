@@ -5,9 +5,9 @@ import { advantages } from "@/content/site";
 
 export function Advantages() {
   return (
-    <section id="advantages" className="py-18 sm:py-24">
+    <section className="py-18 sm:py-24">
       <Container className="flex flex-col gap-11">
-        <div className="relative">
+        <div id="advantages" className="relative scroll-mt-20">
           <SectionHeading
             eyebrow={advantages.eyebrow}
             title={advantages.title}

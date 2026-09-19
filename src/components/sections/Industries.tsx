@@ -6,13 +6,16 @@ import { industries } from "@/content/site";
 
 export function Industries() {
   return (
-    <section id="industries" className="py-18 sm:py-24">
+    <section className="py-18 sm:py-24">
       <Container className="flex flex-col gap-11">
-        <SectionHeading
-          eyebrow={industries.eyebrow}
-          title={industries.title}
-          description={industries.description}
-        />
+        <div id="industries" className="scroll-mt-20">
+          <SectionHeading
+            align="center"
+            eyebrow={industries.eyebrow}
+            title={industries.title}
+            description={industries.description}
+          />
+        </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {industries.items.map((industry) => {

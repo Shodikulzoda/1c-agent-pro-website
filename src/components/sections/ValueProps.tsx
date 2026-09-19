@@ -1,4 +1,4 @@
-import { CalendarCheck, Cloud, Check } from "lucide-react";
+import { CalendarCheck, Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { DemoButton } from "@/components/demo/DemoButton";
 import { valueProps } from "@/content/site";
@@ -69,17 +69,6 @@ export function ValueProps() {
           />
 
           <div className="relative flex flex-col gap-5">
-            {/* Badge */}
-            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/20 px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-wide">
-              <Cloud className="h-3.5 w-3.5" />
-              {cloud.badge}
-            </span>
-
-            {/* Eyebrow */}
-            <p className="text-[0.75rem] font-semibold uppercase tracking-widest text-blue-100">
-              {cloud.eyebrow}
-            </p>
-
             {/* Title */}
             <h2 className="font-display text-[2rem] font-extrabold leading-tight">
               {cloud.title}

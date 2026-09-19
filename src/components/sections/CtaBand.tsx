@@ -5,8 +5,8 @@ import { whatsappUrl } from "@/lib/whatsapp";
 
 export function CtaBand() {
   return (
-    <section id="cta" className="px-4 py-4 sm:px-6">
-      <div className="from-brand-navy to-brand-blue relative mx-auto max-w-(--container-page) overflow-hidden rounded-[28px] bg-linear-to-br px-7 py-13 text-center sm:px-12">
+    <section className="px-4 py-4 sm:px-6">
+      <div id="cta" className="from-brand-navy to-brand-blue relative mx-auto max-w-(--container-page) scroll-mt-20 overflow-hidden rounded-[28px] bg-linear-to-br px-7 py-13 text-center sm:px-12">
         <h2 className="font-display text-2xl font-extrabold text-balance text-white sm:text-4xl">
           {cta.title}
         </h2>

@@ -5,13 +5,15 @@ import { process } from "@/content/site";
 
 export function ProcessSteps() {
   return (
-    <section id="process" className="py-18 sm:py-24">
+    <section className="py-18 sm:py-24">
       <Container className="flex flex-col gap-11">
-        <SectionHeading
-          eyebrow={process.eyebrow}
-          title={process.title}
-          description={process.description}
-        />
+        <div id="process" className="scroll-mt-20">
+          <SectionHeading
+            eyebrow={process.eyebrow}
+            title={process.title}
+            description={process.description}
+          />
+        </div>
 
         <ol className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {process.steps.map((step, index) => {

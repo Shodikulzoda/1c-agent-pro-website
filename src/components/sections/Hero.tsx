@@ -9,9 +9,9 @@ import { hero } from "@/content/site";
 export function Hero() {
   return (
     <header
-      id="about"
       className="from-sky-1 via-surface to-bg relative overflow-hidden bg-linear-to-b pt-14 pb-24 sm:pt-20"
     >
+      <div id="about" className="absolute top-0 scroll-mt-20" />
       <MountainBackdrop variant="bottom" className="h-64 opacity-90" />
       <div
         aria-hidden

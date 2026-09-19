@@ -9,13 +9,15 @@ type Benefit = { icon: string; label: string };
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-18 sm:py-24">
+    <section className="py-18 sm:py-24">
       <Container className="flex flex-col gap-11">
-        <SectionHeading
-          eyebrow={pricing.eyebrow}
-          title={pricing.title}
-          description={pricing.description}
-        />
+        <div id="pricing" className="scroll-mt-20">
+          <SectionHeading
+            eyebrow={pricing.eyebrow}
+            title={pricing.title}
+            description={pricing.description}
+          />
+        </div>
 
         {/* Benefit badges */}
         <div className="flex flex-wrap justify-center gap-3">
