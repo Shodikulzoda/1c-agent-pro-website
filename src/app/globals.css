@@ -60,7 +60,7 @@ body {
 
 /* Anchor targets clear the sticky navbar when jumped to. */
 :where(section, header)[id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 4rem;
 }
 
 html {
