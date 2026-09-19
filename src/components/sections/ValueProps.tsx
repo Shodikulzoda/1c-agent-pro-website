@@ -45,7 +45,7 @@ export function ValueProps() {
 
             {/* CTA */}
             <div className="flex flex-col gap-2.5">
-              <DemoButton className="!bg-white !text-emerald-700 hover:!brightness-95 w-full justify-center">
+              <DemoButton variant="inverse" className="w-full justify-center !text-emerald-700">
                 {trial.cta}
               </DemoButton>
               <p className="flex items-center gap-1.5 text-[0.72rem] text-white/75">
