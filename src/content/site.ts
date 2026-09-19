@@ -67,7 +67,7 @@ export const stats = [
   { value: "+32%", label: "рост продаж" },
   { value: "−40%", label: "экономия времени" },
   { value: "100%", label: "данные в 1С онлайн" },
-  { value: "1 день", label: "запуск команды" },
+  { value: "2 дня", label: "запуск команды" },
 ] as const;
 
 export const advantages = {
