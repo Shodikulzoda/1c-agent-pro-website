@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { MountainBackdrop } from "@/components/ui/MountainBackdrop";
 import { DemoButton } from "@/components/demo/DemoButton";
+import { PlayMarketBadge } from "@/components/ui/PlayMarketBadge";
 import { hero } from "@/content/site";
 
 export function Hero() {
@@ -71,6 +72,13 @@ export function Hero() {
               </span>
               {hero.videoButton.label}
             </a>
+          </div>
+
+          <div
+            className="enter mt-6"
+            style={{ animationDelay: "350ms" }}
+          >
+            <PlayMarketBadge />
           </div>
         </div>
 

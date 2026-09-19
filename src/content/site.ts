@@ -453,6 +453,9 @@ export const footer = {
   copyright: "© 2026 1C Agent Pro",
 } as const;
 
+export const playMarketUrl =
+  "https://play.google.com/store/apps/details?id=dv.com.agentpro";
+
 export const whatsappPrefill =
   "Здравствуйте! Хочу узнать больше о 1C Agent Pro и получить демо.";
 
