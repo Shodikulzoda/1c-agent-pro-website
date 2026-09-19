@@ -27,8 +27,8 @@ export default function Home() {
         <Industries />
         <ManagerDashboard />
         <Implementation />
-        <ValueProps />
         <Pricing />
+        <ValueProps />
         <CtaBand />
       </main>
       <Footer />
