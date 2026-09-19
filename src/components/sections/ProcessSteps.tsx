@@ -33,12 +33,12 @@ export function ProcessSteps() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="text-ink text-[0.95rem] font-bold">
-                  {step.title}
+                <div>
+                  <h3 className="text-ink text-[0.95rem] font-bold">{step.title}</h3>
                   {"duration" in step && step.duration ? (
-                    <span className="text-ink-soft ml-1 text-[0.75rem] font-normal">({step.duration})</span>
+                    <p className="text-ink-soft mt-0.5 text-[0.72rem]">{step.duration}</p>
                   ) : null}
-                </h3>
+                </div>
                 <p className="text-ink-soft text-[0.82rem] leading-relaxed">
                   {step.description}
                 </p>

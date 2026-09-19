@@ -41,7 +41,7 @@ export const hero = {
   ],
   script: "Больше возможностей для вашего бизнеса!",
   primaryCta: { label: "Узнать подробнее", href: "#pricing" },
-  videoButton: { label: "Смотреть демо", href: "#" },
+  videoButton: { label: "Смотреть демо", href: "#process" },
   phoneMock: {
     routeLabel: "Маршрут на сегодня",
     stops: [
