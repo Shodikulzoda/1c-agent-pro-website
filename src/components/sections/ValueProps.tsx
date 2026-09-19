@@ -1,4 +1,4 @@
-import { CalendarCheck, Cloud, Check, ShieldCheck } from "lucide-react";
+import { CalendarCheck, Cloud, Check } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { DemoButton } from "@/components/demo/DemoButton";
 import { valueProps } from "@/content/site";
@@ -85,24 +85,17 @@ export function ValueProps() {
               {cloud.title}
             </h2>
 
-            {/* Description */}
-            <p className="text-sm leading-relaxed text-white/85">
-              {cloud.description}
-            </p>
-
-            {/* Trust points */}
-            <ul className="flex flex-col gap-2">
-              {[
-                "Нет затрат на сервер и IT",
-                "Защищённое соединение с 1С",
-                "Обновления и бэкапы автоматически",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-[0.8rem] font-semibold text-white/90">
-                  <ShieldCheck className="h-4 w-4 shrink-0 text-blue-200" strokeWidth={2} />
-                  {item}
-                </li>
+            {/* Sections */}
+            <div className="flex flex-col gap-4">
+              {cloud.sections.map((s) => (
+                <div key={s.heading}>
+                  <p className="mb-1 text-[0.75rem] font-bold uppercase tracking-wide text-blue-200">
+                    {s.heading}
+                  </p>
+                  <p className="text-sm leading-relaxed text-white/85">{s.body}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </Container>
