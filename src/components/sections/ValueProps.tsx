@@ -93,9 +93,9 @@ export function ValueProps() {
             {/* Trust points */}
             <ul className="flex flex-col gap-2">
               {[
-                "Защищённая инфраструктура",
-                "99.9% uptime",
-                "Резервные копии каждый день",
+                "Нет затрат на сервер и IT",
+                "Защищённое соединение с 1С",
+                "Обновления и бэкапы автоматически",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-[0.8rem] font-semibold text-white/90">
                   <ShieldCheck className="h-4 w-4 shrink-0 text-blue-200" strokeWidth={2} />
