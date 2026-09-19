@@ -15,6 +15,7 @@ export const nav: {
   tagline: "Мобильное рабочее место торгового представителя",
   links: [
     { label: "О продукте", href: "#about" },
+    { label: "Преимущества", href: "#advantages" },
     { label: "Возможности", href: "#features" },
     { label: "Как это работает", href: "#process" },
     { label: "Тарифы", href: "#pricing" },
