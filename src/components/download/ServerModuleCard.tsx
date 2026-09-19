@@ -10,14 +10,6 @@ const { serverModule } = downloadPage;
 const RECAPTCHA_SITE_KEY =
   process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
-declare global {
-  interface Window {
-    grecaptcha?: {
-      render: (el: HTMLElement, opts: Record<string, unknown>) => number;
-      reset: (id?: number) => void;
-    };
-  }
-}
 
 export function ServerModuleCard() {
   const [selected, setSelected] = useState(serverModule.configs[0].id);

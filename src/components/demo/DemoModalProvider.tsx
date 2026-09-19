@@ -33,7 +33,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 declare global {
   interface Window {
     grecaptcha?: {
-      render: (el: HTMLElement, opts: { sitekey: string }) => number;
+      render: (el: HTMLElement, opts: Record<string, unknown>) => number;
       getResponse: (id?: number) => string;
       reset: (id?: number) => void;
     };
