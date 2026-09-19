@@ -25,9 +25,6 @@ export function Navbar() {
     >
       <Container className="flex items-center justify-between gap-5 py-3">
         <a href="#" className="flex shrink-0 items-center gap-2.5" aria-label={nav.brand}>
-          <span className="from-brand-blue-bright to-brand-navy flex h-9 w-9 shrink-0 items-center justify-center rounded-[11px] bg-linear-to-br text-xs font-extrabold text-white">
-            1C
-          </span>
           <span className="flex flex-col leading-tight">
             <span className="font-display text-heading text-base font-extrabold">
               {nav.brand}

@@ -387,11 +387,11 @@ export const pricing = {
     title: "SMS-бонусы",
     subtitle: "только для Pro",
     rows: [
-      { agents: "до 20", bonus: "500 SMS (по 0,050)" },
-      { agents: "21–30", bonus: "3 000 SMS (по 0,050)" },
-      { agents: "31–40", bonus: "6 000 SMS (по 0,050)" },
-      { agents: "41–50", bonus: "9 000 SMS (по 0,050)" },
-      { agents: "от 51+", bonus: "12 000 SMS (по 0,045)" },
+      { agents: "до 20", bonus: "500 SMS" },
+      { agents: "21–30", bonus: "3 000 SMS" },
+      { agents: "31–40", bonus: "6 000 SMS" },
+      { agents: "41–50", bonus: "9 000 SMS" },
+      { agents: "от 51+", bonus: "12 000 SMS" },
     ],
   },
   included: [
