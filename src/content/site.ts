@@ -25,7 +25,7 @@ export const nav: {
   ],
   phone: "+992 92 123 45 67",
   callback: "Заказать звонок",
-  cta: { label: "Получить демо", href: "#pricing" },
+  cta: { label: "Оставить заявку", href: "#pricing" },
   downloadLink: { label: "Скачать", href: "/download" },
 };
 
@@ -433,7 +433,7 @@ export const implementation = {
     },
   ],
   stats: [
-    { value: "до 14 дней", label: "Среднее время внедрения" },
+    { value: "до 2 дней", label: "Среднее время внедрения" },
     { value: "1 день", label: "Обучение команды" },
     { value: "2 часа", label: "Время реакции поддержки" },
     { value: "Всё включено", label: "в стоимость подписки" },
@@ -493,8 +493,8 @@ export const whatsappPrefill =
   "Здравствуйте! Хочу узнать больше о 1C Agent Pro и получить демо.";
 
 export const demoForm = {
-  triggerLabel: "Получить демо",
-  title: "Получить демо 1C Agent Pro",
+  triggerLabel: "Оставить заявку",
+  title: "Оставить заявку",
   subtitle: "Оставьте контакты — перезвоним, ответим на вопросы и проведём демонстрацию.",
   fields: {
     name: { label: "Имя", placeholder: "Как к вам обращаться" },
