@@ -60,26 +60,44 @@ export async function POST(request: Request) {
 
   const lead = { name, phone, email, at: new Date().toISOString() };
 
-  // Forward to a configured webhook (Telegram bot, Make/Zapier, CRM, …).
-  // Until LEAD_WEBHOOK_URL is set, the lead is just logged server-side.
-  const webhook = process.env.LEAD_WEBHOOK_URL;
-  if (webhook) {
+  const tgToken = process.env.TELEGRAM_BOT_TOKEN;
+  const tgChat = process.env.TELEGRAM_CHAT_ID;
+
+  if (tgToken && tgChat) {
+    const lines = [
+      "📋 <b>Новая заявка — 1C Agent Pro</b>",
+      "",
+      `👤 <b>Имя:</b> ${name}`,
+      `📞 <b>Телефон:</b> ${phone}`,
+      email ? `📧 <b>Email:</b> ${email}` : null,
+      "",
+      `🕐 ${new Date().toLocaleString("ru-RU", { timeZone: "Asia/Dushanbe" })}`,
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
+
     try {
-      const res = await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(lead),
-      });
-      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
-    } catch (err) {
-      console.error("Lead webhook failed:", err);
-      return NextResponse.json(
-        { error: "Не удалось доставить заявку. Попробуйте позже." },
-        { status: 502 },
+      const res = await fetch(
+        `https://api.telegram.org/bot${tgToken}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: tgChat,
+            text: lines,
+            parse_mode: "HTML",
+          }),
+        },
       );
+      if (!res.ok) {
+        const err = await res.text();
+        console.error("Telegram sendMessage failed:", err);
+      }
+    } catch (err) {
+      console.error("Telegram fetch error:", err);
     }
   } else {
-    console.info("New lead (no LEAD_WEBHOOK_URL configured):", lead);
+    console.info("New lead (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not set):", lead);
   }
 
   return NextResponse.json({ ok: true });
