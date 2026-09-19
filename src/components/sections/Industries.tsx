@@ -17,7 +17,7 @@ export function Industries() {
           />
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mx-auto grid w-full max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.items.map((industry) => {
             const Icon = icons[industry.icon];
             return (
