@@ -16,10 +16,10 @@ export const nav: {
   links: [
     { label: "О продукте", href: "#about" },
     { label: "Преимущества", href: "#advantages" },
-    { label: "Возможности", href: "#features" },
     { label: "Как это работает", href: "#process" },
-    { label: "Тарифы", href: "#pricing" },
+    { label: "Возможности", href: "#features" },
     { label: "Для кого", href: "#industries" },
+    { label: "Тарифы", href: "#pricing" },
     { label: "Контакты", href: "#cta" },
   ],
   phone: "+992 92 123 45 67",
