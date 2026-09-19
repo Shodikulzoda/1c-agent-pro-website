@@ -32,8 +32,8 @@ export function Navbar() {
             <span className="font-display text-heading text-base font-extrabold">
               {nav.brand}
             </span>
-            <span className="text-ink-soft hidden text-[0.62rem] font-medium sm:block">
-              {nav.tagline}
+            <span className="text-ink-soft hidden text-[0.62rem] font-medium leading-tight sm:block">
+              Мобильное рабочее место<br />торгового представителя
             </span>
           </span>
         </a>
