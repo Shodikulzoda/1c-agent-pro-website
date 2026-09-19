@@ -64,7 +64,7 @@ export async function POST(request: Request) {
   const tgChat = process.env.TELEGRAM_CHAT_ID;
 
   if (tgToken && tgChat) {
-    const lines = [
+    const bodyLines = [
       "📋 <b>Новая заявка — 1C Agent Pro</b>",
       "",
       `👤 <b>Имя:</b> ${name}`,
@@ -77,6 +77,10 @@ export async function POST(request: Request) {
       .filter((l) => l !== null)
       .join("\n");
 
+    // SEP marks the boundary between lead body and status — never changes
+    const SEP = "\n\n━━━━━━━━━━";
+    const text = `${bodyLines}${SEP}\n🆕 Ожидает обработки`;
+
     try {
       const res = await fetch(
         `https://api.telegram.org/bot${tgToken}/sendMessage`,
@@ -85,7 +89,7 @@ export async function POST(request: Request) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             chat_id: tgChat,
-            text: lines,
+            text,
             parse_mode: "HTML",
             reply_markup: {
               inline_keyboard: [
