@@ -9,7 +9,7 @@ type Benefit = { icon: string; label: string };
 
 export function Pricing() {
   return (
-    <section className="py-18 sm:py-24">
+    <section className="py-12 sm:py-16">
       <Container className="flex flex-col gap-11">
         <div id="pricing" className="scroll-mt-20">
           <SectionHeading

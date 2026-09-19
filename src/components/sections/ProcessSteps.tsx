@@ -5,7 +5,7 @@ import { process } from "@/content/site";
 
 export function ProcessSteps() {
   return (
-    <section className="py-18 sm:py-24">
+    <section className="py-12 sm:py-16">
       <Container className="flex flex-col gap-11">
         <div id="process" className="scroll-mt-20">
           <SectionHeading

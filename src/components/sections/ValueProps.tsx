@@ -7,7 +7,7 @@ const { trial, cloud } = valueProps;
 
 export function ValueProps() {
   return (
-    <section className="py-14 sm:py-20">
+    <section className="py-10 sm:py-14">
       <Container className="grid gap-6 md:grid-cols-2">
         {/* Trial card */}
         <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-emerald-500 to-emerald-700 p-8 text-white shadow-xl">

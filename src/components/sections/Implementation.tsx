@@ -5,7 +5,7 @@ import { implementation } from "@/content/site";
 
 export function Implementation() {
   return (
-    <section className="bg-surface-tint py-18 sm:py-24">
+    <section className="bg-surface-tint py-12 sm:py-16">
       <Container className="flex flex-col gap-11">
         <div id="implementation" className="scroll-mt-20">
           <SectionHeading

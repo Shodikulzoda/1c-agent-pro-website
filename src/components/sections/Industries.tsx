@@ -6,7 +6,7 @@ import { industries } from "@/content/site";
 
 export function Industries() {
   return (
-    <section className="py-18 sm:py-24">
+    <section className="py-12 sm:py-16">
       <Container className="flex flex-col gap-10">
         <div id="industries" className="scroll-mt-20 flex flex-col items-center gap-5">
           <SectionHeading

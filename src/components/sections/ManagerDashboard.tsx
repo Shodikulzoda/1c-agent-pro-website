@@ -11,7 +11,7 @@ const statusColor = {
 export function ManagerDashboard() {
   const { dashboard } = managerControl;
   return (
-    <section className="bg-surface-tint py-18 sm:py-24">
+    <section className="bg-surface-tint py-12 sm:py-16">
       <Container className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
         <div>
           <SectionHeading

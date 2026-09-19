@@ -5,7 +5,7 @@ import { features } from "@/content/site";
 
 export function FeaturesGrid() {
   return (
-    <section className="bg-surface-tint py-18 sm:py-24">
+    <section className="bg-surface-tint py-12 sm:py-16">
       <Container className="flex flex-col gap-11">
         <div id="features" className="scroll-mt-20">
           <SectionHeading
