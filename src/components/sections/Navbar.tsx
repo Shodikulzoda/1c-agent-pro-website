@@ -54,12 +54,7 @@ export function Navbar() {
             className="text-heading flex items-center gap-2 text-sm font-bold"
           >
             <Phone aria-hidden="true" className="text-brand-blue h-4 w-4 shrink-0" />
-            <span className="flex flex-col leading-tight">
-              <span className="whitespace-nowrap">{nav.phone}</span>
-              <span className="text-ink-soft text-[0.62rem] font-medium">
-                {nav.callback}
-              </span>
-            </span>
+            <span className="whitespace-nowrap">{nav.phone}</span>
           </a>
 <DemoButton className="px-4.5 py-2.5 text-[0.85rem] whitespace-nowrap">
             {nav.cta.label}
