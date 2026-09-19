@@ -5,28 +5,10 @@ type LeadPayload = {
   phone?: unknown;
   email?: unknown;
   message?: unknown;
-  recaptchaToken?: unknown;
 };
 
 function asString(v: unknown): string {
   return typeof v === "string" ? v.trim() : "";
-}
-
-async function verifyRecaptcha(token: string): Promise<boolean> {
-  const secret = process.env.RECAPTCHA_SECRET_KEY;
-  if (!secret || !token) return true;
-
-  try {
-    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", { // enterprise keys work with this endpoint for checkbox widget
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ secret, response: token }),
-    });
-    const data = (await res.json()) as { success?: boolean };
-    return data.success === true;
-  } catch {
-    return false;
-  }
 }
 
 export async function POST(request: Request) {
@@ -41,7 +23,6 @@ export async function POST(request: Request) {
   const phone = asString(body.phone);
   const email = asString(body.email);
   const message = asString(body.message);
-  const recaptchaToken = asString(body.recaptchaToken);
 
   if (name.length < 2) {
     return NextResponse.json({ error: "Укажите имя." }, { status: 400 });
@@ -51,11 +32,6 @@ export async function POST(request: Request) {
   }
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "Некорректный email." }, { status: 400 });
-  }
-
-  const captchaOk = await verifyRecaptcha(recaptchaToken);
-  if (!captchaOk) {
-    return NextResponse.json({ error: "Проверка капчи не пройдена." }, { status: 400 });
   }
 
   const lead = { name, phone, email, message, at: new Date().toISOString() };

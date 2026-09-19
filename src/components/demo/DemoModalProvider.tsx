@@ -24,38 +24,12 @@ export function useDemoModal() {
   return ctx;
 }
 
-const RECAPTCHA_SITE_KEY =
-  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-
 type Status = "idle" | "submitting" | "success" | "error";
-
-declare global {
-  interface Window {
-    grecaptcha?: {
-      enterprise: {
-        ready: (cb: () => void) => void;
-        execute: (siteKey: string, opts: { action: string }) => Promise<string>;
-      };
-    };
-  }
-}
 
 export function DemoModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const open = useCallback(() => setIsOpen(true), []);
-  const close = useCallback(() => setIsOpen(false), []);
-
-  // Preload Enterprise script once
-  useEffect(() => {
-    if (!RECAPTCHA_SITE_KEY) return;
-    const id = "recaptcha-enterprise";
-    if (document.getElementById(id)) return;
-    const s = document.createElement("script");
-    s.id = id;
-    s.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
-    s.async = true;
-    document.head.appendChild(s);
-  }, []);
+  const close = useCallback(() => setIsOpen(false), [])
 
   return (
     <DemoModalContext.Provider value={{ open }}>
@@ -116,26 +90,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    let recaptchaToken = "";
-    if (RECAPTCHA_SITE_KEY && window.grecaptcha?.enterprise) {
-      try {
-        recaptchaToken = await Promise.race([
-          new Promise<string>((resolve) => {
-            window.grecaptcha!.enterprise.ready(async () => {
-              const token = await window.grecaptcha!.enterprise.execute(
-                RECAPTCHA_SITE_KEY,
-                { action: "submit_lead" },
-              );
-              resolve(token);
-            });
-          }),
-          new Promise<string>((resolve) => setTimeout(() => resolve(""), 5000)),
-        ]);
-      } catch {
-        recaptchaToken = "";
-      }
-    }
-
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
@@ -145,7 +99,6 @@ function DemoDialog({ onClose }: { onClose: () => void }) {
           phone: data.get("phone"),
           email: data.get("email"),
           message: data.get("message"),
-          recaptchaToken,
         }),
       });
       if (!res.ok) {
