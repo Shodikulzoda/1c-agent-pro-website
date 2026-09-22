@@ -2,33 +2,24 @@ import Image from "next/image";
 import { Check, Play } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { MountainBackdrop } from "@/components/ui/MountainBackdrop";
 import { DemoButton } from "@/components/demo/DemoButton";
 import { PlayMarketBadge } from "@/components/ui/PlayMarketBadge";
 import { hero } from "@/content/site";
 
 export function Hero() {
   return (
-    <header className="relative overflow-hidden pt-14 pb-28 sm:pt-20 sm:pb-36">
-      {/* Background image */}
-      <div aria-hidden className="absolute inset-0">
-        <Image
-          src="/hero-bg.webp"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center sm:object-right"
-          sizes="100vw"
-        />
-        {/* Left-to-right fade so text stays readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/97 via-white/85 sm:via-white/70 lg:via-white/55 to-white/10 lg:to-transparent" />
-        {/* Bottom fade into next section */}
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/80 to-transparent" />
-      </div>
-
+    <header className="from-sky-1 via-surface to-bg relative overflow-hidden bg-linear-to-b pt-14 pb-24 sm:pt-20">
       <div id="about" className="absolute top-0 scroll-mt-20" />
+      <MountainBackdrop variant="bottom" className="h-64 opacity-90" />
+      <div
+        aria-hidden
+        className="from-brand-blue-bright/15 pointer-events-none absolute -top-40 -left-32 h-96 w-96 rounded-full bg-radial to-transparent blur-2xl"
+      />
 
-      <Container className="relative">
-        <div className="max-w-xl">
+      <Container className="relative grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-10">
+        {/* Left: text */}
+        <div>
           <div className="enter">
             <Eyebrow>{hero.eyebrow}</Eyebrow>
           </div>
@@ -83,11 +74,25 @@ export function Hero() {
             </a>
           </div>
 
-          <div
-            className="enter mt-6"
-            style={{ animationDelay: "350ms" }}
-          >
+          <div className="enter mt-6" style={{ animationDelay: "350ms" }}>
             <PlayMarketBadge />
+          </div>
+        </div>
+
+        {/* Right: hero image */}
+        <div
+          className="enter relative hidden lg:block"
+          style={{ animationDelay: "180ms" }}
+        >
+          <div className="relative h-[420px] w-full overflow-hidden rounded-3xl shadow-2xl shadow-brand-navy/20">
+            <Image
+              src="/hero-bg.webp"
+              alt="1C Agent Pro — мобильное рабочее место торгового представителя"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 0px, 50vw"
+            />
           </div>
         </div>
       </Container>
