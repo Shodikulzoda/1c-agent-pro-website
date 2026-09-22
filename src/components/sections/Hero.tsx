@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Check, Play } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -8,24 +7,15 @@ import { hero } from "@/content/site";
 
 export function Hero() {
   return (
-    <header className="relative overflow-hidden pt-14 pb-28 sm:pt-16 sm:pb-36">
+    <header
+      className="relative overflow-hidden pt-14 pb-28 sm:pt-16 sm:pb-36"
+      style={{ backgroundImage: "url('/hero-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+    >
       <div id="about" className="absolute top-0 scroll-mt-20" />
 
-      {/* Full-bleed background image */}
-      <div aria-hidden className="absolute inset-0">
-        <Image
-          src="/hero-bg.webp"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        {/* Subtle left overlay — readable text, image still visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/82 via-white/50 lg:via-white/35 to-transparent" />
-        {/* Bottom fade into next section */}
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/70 to-transparent" />
-      </div>
+      {/* Gradient overlays — contained within header, no overflow risk */}
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/50 lg:via-white/35 to-transparent" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/70 to-transparent" />
 
       <Container className="relative">
         <div className="max-w-[520px]">
