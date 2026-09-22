@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { footer, nav } from "@/content/site";
@@ -10,9 +11,12 @@ export function Footer() {
 
           {/* Brand */}
           <div className="flex flex-col gap-3">
-            <span className="font-display text-heading text-base font-extrabold">
-              {footer.brand}
-            </span>
+            <div className="flex items-center gap-2.5">
+              <Image src="/logo.png" alt="1C Agent Pro logo" width={32} height={32} className="shrink-0" />
+              <span className="font-display text-heading text-base font-extrabold">
+                {footer.brand}
+              </span>
+            </div>
             <p className="text-ink-soft text-[0.8rem] leading-relaxed max-w-xs">
               {footer.tagline}
             </p>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -25,6 +26,7 @@ export function Navbar() {
     >
       <Container className="flex items-center justify-between gap-5 py-3">
         <a href="#" className="flex shrink-0 items-center gap-2.5" aria-label={nav.brand}>
+          <Image src="/logo.png" alt="1C Agent Pro logo" width={36} height={36} className="shrink-0" />
           <span className="flex flex-col leading-tight">
             <span className="font-display text-heading text-base font-extrabold">
               {nav.brand}
