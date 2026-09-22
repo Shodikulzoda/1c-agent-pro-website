@@ -17,7 +17,7 @@ export function Hero() {
         className="from-brand-blue-bright/15 pointer-events-none absolute -top-40 -left-32 h-96 w-96 rounded-full bg-radial to-transparent blur-2xl"
       />
 
-      <Container className="relative grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-10">
+      <Container className="relative grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-6">
         {/* Left: text */}
         <div>
           <div className="enter">
