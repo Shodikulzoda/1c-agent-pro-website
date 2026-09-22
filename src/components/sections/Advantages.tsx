@@ -21,6 +21,7 @@ export function Advantages() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {advantages.items.map((item, index) => {
+            const typedItem = item as typeof item & { image?: string };
             const Icon = icons[item.icon];
             return (
               <div
@@ -28,9 +29,9 @@ export function Advantages() {
                 className="border-line bg-surface hover:border-brand-blue/40 hover:shadow-brand-blue/10 group relative flex flex-col rounded-2xl border p-5 transition-[border-color,box-shadow] hover:shadow-lg"
               >
                 <span className="from-brand-blue-bright/12 to-brand-blue/12 mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br">
-                  {item.image ? (
+                  {typedItem.image ? (
                     <Image
-                      src={item.image}
+                      src={typedItem.image}
                       alt={item.title}
                       width={32}
                       height={32}
