@@ -26,7 +26,7 @@ export function Navbar() {
     >
       <Container className="flex items-center justify-between gap-5 py-3">
         <a href="#" className="flex shrink-0 items-center gap-2.5" aria-label={nav.brand}>
-          <Image src="/logo.png" alt="1C Agent Pro logo" width={36} height={36} className="shrink-0" />
+          <Image src="/logo.png" alt="1C Agent Pro logo" width={36} height={36} className="shrink-0" unoptimized />
           <span className="flex flex-col leading-tight">
             <span className="font-display text-heading text-base font-extrabold">
               {nav.brand}
@@ -37,7 +37,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <ul className="text-ink-soft hidden items-center gap-5 text-[0.82rem] font-semibold xl:flex 2xl:gap-7">
+        <ul className="text-ink-soft hidden items-center gap-4 text-[0.78rem] font-semibold xl:flex">
           {nav.links.map((link) => (
             <li key={link.href}>
               <a
@@ -50,15 +50,22 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3.5 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <a
             href={`tel:${nav.phone.replace(/\s/g, "")}`}
-            className="text-heading flex items-center gap-2 text-sm font-bold"
+            className="text-heading flex items-center gap-1.5 text-[0.85rem] font-bold"
           >
-            <Phone aria-hidden="true" className="text-brand-blue h-4 w-4 shrink-0" />
+            <Phone aria-hidden="true" className="text-brand-blue h-3.5 w-3.5 shrink-0" />
             <span className="whitespace-nowrap">{nav.phone}</span>
           </a>
-<DemoButton className="px-4.5 py-2.5 text-[0.85rem] whitespace-nowrap">
+          <DemoButton className="px-4 py-2.5 text-[0.82rem] whitespace-nowrap">
+            {nav.cta.label}
+          </DemoButton>
+        </div>
+
+        {/* Button only for lg (before xl) */}
+        <div className="hidden items-center lg:flex xl:hidden">
+          <DemoButton className="px-4 py-2.5 text-[0.82rem] whitespace-nowrap">
             {nav.cta.label}
           </DemoButton>
         </div>
