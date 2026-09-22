@@ -79,6 +79,7 @@ export const advantages = {
   items: [
     {
       icon: "smartphone",
+      image: "/android-logo.svg",
       title: "Работает на Android",
       description: "Удобное мобильное приложение для любой команды.",
     },
@@ -89,6 +90,7 @@ export const advantages = {
     },
     {
       icon: "blocks",
+      image: "/1c-logo.png",
       title: "Полная интеграция с 1С",
       description: "Заказы, клиенты, остатки и документы автоматически в вашей 1С.",
     },

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { icons } from "@/lib/icons";
@@ -26,8 +27,19 @@ export function Advantages() {
                 key={item.title}
                 className="border-line bg-surface hover:border-brand-blue/40 hover:shadow-brand-blue/10 group relative flex flex-col rounded-2xl border p-5 transition-[border-color,box-shadow] hover:shadow-lg"
               >
-                <span className="from-brand-blue-bright/12 to-brand-blue/12 text-brand-blue mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br">
-                  <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={2} />
+                <span className="from-brand-blue-bright/12 to-brand-blue/12 mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 object-contain"
+                      unoptimized
+                    />
+                  ) : (
+                    <Icon aria-hidden="true" className="text-brand-blue h-6 w-6" strokeWidth={2} />
+                  )}
                 </span>
                 <h3 className="text-ink text-[0.95rem] leading-snug font-bold">
                   {item.title}
