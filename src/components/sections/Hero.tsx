@@ -14,7 +14,7 @@ export function Hero() {
       <div id="about" className="absolute top-0 scroll-mt-20" />
 
       {/* Gradient overlays — contained within header, no overflow risk */}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/50 lg:via-white/35 to-transparent" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-white/90 from-[28%] via-white/30 via-[45%] to-transparent" />
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/70 to-transparent" />
 
       <Container className="relative">
