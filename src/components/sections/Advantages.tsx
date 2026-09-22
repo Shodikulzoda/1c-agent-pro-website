@@ -28,14 +28,14 @@ export function Advantages() {
                 key={item.title}
                 className="border-line bg-surface hover:border-brand-blue/40 hover:shadow-brand-blue/10 group relative flex flex-col rounded-2xl border p-5 transition-[border-color,box-shadow] hover:shadow-lg"
               >
-                <span className="from-brand-blue-bright/12 to-brand-blue/12 mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br">
+                <span className="from-brand-blue-bright/12 to-brand-blue/12 mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br">
                   {typedItem.image ? (
                     <Image
                       src={typedItem.image}
                       alt={item.title}
-                      width={32}
-                      height={32}
-                      className="h-8 w-8 object-contain"
+                      width={48}
+                      height={48}
+                      className="h-11 w-11 object-contain"
                       unoptimized
                     />
                   ) : (
