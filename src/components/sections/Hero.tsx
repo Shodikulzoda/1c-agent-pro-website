@@ -7,17 +7,10 @@ import { hero } from "@/content/site";
 
 export function Hero() {
   return (
-    <header
-      className="relative overflow-hidden pt-14 pb-28 sm:pt-16 sm:pb-36"
-      style={{ backgroundImage: "url('/hero-bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
-    >
-      <div id="about" className="absolute top-0 scroll-mt-20" />
+    <header className="pt-14 pb-28 sm:pt-16 sm:pb-36">
+      <div id="about" className="scroll-mt-20" />
 
-      {/* Gradient overlays — contained within header, no overflow risk */}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-white/90 from-[28%] via-white/30 via-[45%] to-transparent" />
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/70 to-transparent" />
-
-      <Container className="relative">
+      <Container>
         <div className="max-w-[520px]">
           <div className="enter">
             <Eyebrow>{hero.eyebrow}</Eyebrow>
