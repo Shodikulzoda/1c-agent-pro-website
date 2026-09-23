@@ -115,40 +115,8 @@ export function Pricing() {
           })}
         </div>
 
-        {/* Scale table + SMS bonus + Included */}
-        <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr_1fr]">
-          {/* Scale table */}
-          <div className="border-line bg-surface rounded-[20px] border p-6">
-            <p className="font-display text-heading text-base font-extrabold">
-              {pricing.scaleTable.title}
-            </p>
-            <p className="text-ink-soft mt-0.5 text-xs">{pricing.scaleTable.subtitle}</p>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full text-[0.75rem]">
-                <thead>
-                  <tr className="text-ink-soft border-line border-b">
-                    <th className="pb-2 pr-3 text-left font-semibold">Тариф</th>
-                    {pricing.scaleTable.columns.map((col) => (
-                      <th key={col} className="pb-2 px-1 text-center font-semibold whitespace-nowrap">
-                        {col}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {pricing.scaleTable.rows.map((row, i) => (
-                    <tr key={row.tier} className={cn("border-line border-b last:border-0", i % 2 === 0 && "bg-surface-tint/50")}>
-                      <td className="py-2 pr-3 font-bold text-left">{row.tier}</td>
-                      {row.values.map((val, j) => (
-                        <td key={j} className="py-2 px-1 text-center tabular-nums">{val}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
+        {/* SMS bonus + Included */}
+        <div className="grid gap-6 lg:grid-cols-2">
           {/* SMS bonus table */}
           <div className="border-line bg-surface rounded-[20px] border p-6">
             <p className="font-display text-heading text-base font-extrabold">
