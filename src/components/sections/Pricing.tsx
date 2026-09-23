@@ -37,7 +37,12 @@ export function Pricing() {
 
         {/* Tier cards */}
         <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
-          {pricing.tiers.map((tier) => (
+          {pricing.tiers.map((tier) => {
+            const typedTier = tier as typeof tier & {
+              priceFrom: string;
+              priceTable: ReadonlyArray<{ range: string; price: string; sms?: string }>;
+            };
+            return (
             <div
               key={tier.tag}
               className={cn(
@@ -59,11 +64,31 @@ export function Pricing() {
                 {tier.subtitle}
               </p>
               <p className="font-display text-heading mt-4 text-2xl font-extrabold tabular-nums">
-                {tier.priceRange}
+                {typedTier.priceFrom}
                 <span className="text-ink-soft ml-1.5 text-[0.72rem] font-semibold">
                   {tier.unit}
                 </span>
               </p>
+
+              {/* Per-agent pricing table */}
+              <div className="border-line mt-4 border-t pt-3">
+                <p className="text-ink-soft mb-2 text-[0.63rem] font-bold uppercase tracking-wide">
+                  Агентов → цена за 1 агента/мес
+                </p>
+                <div className="flex flex-col gap-1">
+                  {typedTier.priceTable.map((row) => (
+                    <div key={row.range} className="flex items-center justify-between text-[0.72rem]">
+                      <span className="text-ink-soft">{row.range} агентов</span>
+                      <div className="flex items-center gap-2">
+                        {row.sms ? (
+                          <span className="text-brand-blue text-[0.63rem] font-semibold">{row.sms}</span>
+                        ) : null}
+                        <span className="text-ink font-bold tabular-nums">{row.price} сом</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               <ul className="mt-5 flex flex-col gap-2.5">
                 {tier.features.map((feature) => (
@@ -86,7 +111,8 @@ export function Pricing() {
                 </div>
               ) : null}
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Scale table + SMS bonus + Included */}
