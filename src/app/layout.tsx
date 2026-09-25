@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     "мобильная торговля 1С",
     "Таджикистан",
   ],
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     title,
     description,
@@ -70,6 +73,56 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "1C Agent Pro",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/logo.png`,
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+992928646900",
+        contactType: "sales",
+        areaServed: "TJ",
+        availableLanguage: "Russian",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Худжанд",
+        addressCountry: "TJ",
+        streetAddress: "ул. Гагарина 137",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${siteUrl}/#app`,
+      name: "1C Agent Pro",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Android",
+      description,
+      url: siteUrl,
+      offers: {
+        "@type": "Offer",
+        price: "40",
+        priceCurrency: "TJS",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "40",
+          priceCurrency: "TJS",
+          unitText: "агент/месяц",
+        },
+      },
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -80,6 +133,12 @@ export default function RootLayout({
       lang="ru"
       className={`${manrope.variable} ${inter.variable} ${caveat.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="flex min-h-full flex-col font-sans">
         {children}
         <Analytics />
