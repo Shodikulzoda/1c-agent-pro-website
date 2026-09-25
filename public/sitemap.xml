@@ -2,6 +2,7 @@
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
@@ -25,5 +26,23 @@
       <image:title>Полная интеграция с 1С</image:title>
       <image:caption>1C Agent Pro — полная интеграция с платформой 1С Предприятие</image:caption>
     </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/iklYUgCaNnc/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Что такое 1C Agent Pro</video:title>
+      <video:description>Обзор мобильного приложения 1C Agent Pro для торговых представителей — интеграция с 1С, заказы, визиты и фотоотчёты.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=iklYUgCaNnc</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/iklYUgCaNnc</video:player_loc>
+      <video:publication_date>2026-09-25</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/w-WSbctvyDs/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Рабочий день агента — 1C Agent Pro</video:title>
+      <video:description>Как выглядит рабочий день торгового представителя с приложением 1C Agent Pro: маршрут, визиты, заказы и синхронизация с 1С.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=w-WSbctvyDs</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/w-WSbctvyDs</video:player_loc>
+      <video:publication_date>2026-09-25</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 </urlset>
