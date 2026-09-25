@@ -133,13 +133,11 @@ export default function RootLayout({
       lang="ru"
       className={`${manrope.variable} ${inter.variable} ${caveat.variable} h-full antialiased`}
     >
-      <head>
+      <body className="flex min-h-full flex-col font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="flex min-h-full flex-col font-sans">
         {children}
         <Analytics />
         <SpeedInsights />
