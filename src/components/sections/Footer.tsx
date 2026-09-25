@@ -70,10 +70,25 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-line mt-8 border-t pt-6">
-          <p className="text-ink-soft text-center text-[0.75rem]">
+        <div className="border-line mt-8 border-t pt-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+          <p className="text-ink-soft text-[0.75rem]">
             {footer.copyright}
           </p>
+          <a
+            href="https://webmaster.yandex.ru/siteinfo/?site=https://1cagentpro.tj"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Яндекс ИКС"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              width={88}
+              height={31}
+              alt="Яндекс ИКС"
+              src="https://yandex.ru/cycounter?https://1cagentpro.tj&theme=light&lang=ru"
+              style={{ borderRadius: 8 }}
+            />
+          </a>
         </div>
       </Container>
     </footer>
