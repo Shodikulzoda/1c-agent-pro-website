@@ -9,6 +9,7 @@ import { ManagerDashboard } from "@/components/sections/ManagerDashboard";
 import { Implementation } from "@/components/sections/Implementation";
 import { ValueProps } from "@/components/sections/ValueProps";
 import { Pricing } from "@/components/sections/Pricing";
+import { Faq } from "@/components/sections/Faq";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Footer } from "@/components/sections/Footer";
 import { DemoModalProvider } from "@/components/demo/DemoModalProvider";
@@ -29,6 +30,7 @@ export default function Home() {
         <Implementation />
         <Pricing />
         <ValueProps />
+        <Faq />
         <CtaBand />
       </main>
       <Footer />

@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     siteName: "1C Agent Pro",
     url: siteUrl,
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "1C Agent Pro" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -98,6 +99,27 @@ const jsonLd = {
         addressCountry: "TJ",
         streetAddress: "ул. Гагарина 137",
       },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#localbusiness`,
+      name: "1C Agent Pro",
+      url: siteUrl,
+      telephone: "+992928646900",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "ул. Гагарина 137",
+        addressLocality: "Худжанд",
+        addressCountry: "TJ",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 40.2833,
+        longitude: 69.6333,
+      },
+      openingHours: "Mo-Fr 09:00-18:00",
+      priceRange: "от 40 TJS/агент/мес",
+      areaServed: { "@type": "Country", name: "Tajikistan" },
     },
     {
       "@type": "SoftwareApplication",
