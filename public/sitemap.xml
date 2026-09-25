@@ -54,5 +54,33 @@
       <video:tag>интеграция с 1С</video:tag>
       <video:uploader info="https://1cagentpro.tj">1C Agent Pro</video:uploader>
     </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/AfMRyq_qk4Q/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Работа с клиентами — 1C Agent Pro</video:title>
+      <video:description>Работа торгового представителя с клиентами в приложении 1C Agent Pro: создание заказов, фотоотчёты, задачи по клиенту и история визитов.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=AfMRyq_qk4Q</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/AfMRyq_qk4Q</video:player_loc>
+      <video:publication_date>2026-09-25</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:tag>1C Agent Pro</video:tag>
+      <video:tag>работа с клиентами</video:tag>
+      <video:tag>торговый представитель заказы</video:tag>
+      <video:tag>CRM для агентов</video:tag>
+      <video:uploader info="https://1cagentpro.tj">1C Agent Pro</video:uploader>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/b7-dx2TnBmc/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Установка и подключение 1C Agent Pro</video:title>
+      <video:description>Пошаговая установка и подключение приложения 1C Agent Pro к базе данных 1С. Быстрое внедрение за 2 дня — от установки до первого маршрута.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=b7-dx2TnBmc</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/b7-dx2TnBmc</video:player_loc>
+      <video:publication_date>2026-09-25</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:tag>1C Agent Pro</video:tag>
+      <video:tag>установка 1C Agent Pro</video:tag>
+      <video:tag>подключение к 1С</video:tag>
+      <video:tag>внедрение мобильного приложения</video:tag>
+      <video:uploader info="https://1cagentpro.tj">1C Agent Pro</video:uploader>
+    </video:video>
   </url>
 </urlset>
