@@ -63,6 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
